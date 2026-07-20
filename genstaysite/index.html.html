@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="/genstay-logo.jpg">
+    <link rel="apple-touch-icon" href="/genstay-logo.jpg">
+
     <!-- Primary Meta Tags -->
     <title>Buy & Rent Verified Businesses & Properties | Genstay</title>
     <meta name="title" content="Buy & Rent Verified Businesses & Properties | Genstay">
     <meta name="description" content="Find, verify, and safely buy or rent businesses, hostels, and commercial properties with Genstay. 100% verified deals. Protect your investment today.">
     <meta name="keywords" content="buy a business, rent commercial property, buy a hostel, verified business deals, commercial real estate, business broker Hyderabad">
-    
+
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.genstay.com/">
+    <link rel="canonical" href="https://www.genstay.in/">
+
+    <!-- hreflang: page currently ships English content; Telugu toggle is client-side only, so we self-reference until a true /te/ variant exists -->
+    <link rel="alternate" hreflang="en-IN" href="https://www.genstay.in/">
+    <link rel="alternate" hreflang="x-default" href="https://www.genstay.in/">
 
     <!-- Performance: Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,38 +29,137 @@
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.genstay.com/">
+    <meta property="og:url" content="https://www.genstay.in/">
     <meta property="og:title" content="Buy & Rent Verified Businesses & Properties | Genstay">
     <meta property="og:description" content="Find, verify, and safely buy or rent businesses, hostels, and commercial properties. 100% verified deals.">
-    <meta property="og:image" content="https://www.genstay.com/genstay-logo.jpg">
+    <meta property="og:image" content="https://www.genstay.in/genstay-logo.jpg">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:site_name" content="Genstay">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.genstay.com/">
+    <meta property="twitter:url" content="https://www.genstay.in/">
     <meta property="twitter:title" content="Buy & Rent Verified Businesses & Properties | Genstay">
     <meta property="twitter:description" content="Find, verify, and safely buy or rent businesses, hostels, and commercial properties. 100% verified deals.">
-    <meta property="twitter:image" content="https://www.genstay.com/genstay-logo.jpg">
+    <meta property="twitter:image" content="https://www.genstay.in/genstay-logo.jpg">
 
     <!-- JSON-LD Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
-      "name": "Genstay",
-      "image": "https://www.genstay.com/genstay-logo.jpg",
-      "@id": "https://www.genstay.com/",
-      "url": "https://www.genstay.com/",
-      "telephone": "+917569422909",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Yamnampet, Ghatkesar",
-        "addressLocality": "Hyderabad",
-        "postalCode": "500039",
-        "addressCountry": "IN"
-      },
-      "description": "Brokerage and verification platform for buying and renting businesses, hostels, and commercial properties in Hyderabad.",
-      "sameAs": []
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.genstay.in/#organization",
+          "name": "Genstay",
+          "url": "https://www.genstay.in/",
+          "logo": "https://www.genstay.in/genstay-logo.jpg",
+          "image": "https://www.genstay.in/genstay-logo.jpg",
+          "telephone": "+917569422909",
+          "email": "genstay.in@gmail.com",
+          "priceRange": "₹2,000 - ₹15,000",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Yamnampet, Ghatkesar",
+            "addressLocality": "Hyderabad",
+            "addressRegion": "Telangana",
+            "postalCode": "500039",
+            "addressCountry": "IN"
+          },
+          "description": "Verification-first platform helping buyers, renters, and sellers safely close business and commercial property deals in Hyderabad through document checks, income validation, and site inspections.",
+          "areaServed": {
+            "@type": "City",
+            "name": "Hyderabad"
+          },
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.genstay.in/#website",
+          "url": "https://www.genstay.in/",
+          "name": "Genstay",
+          "publisher": { "@id": "https://www.genstay.in/#organization" },
+          "inLanguage": "en-IN"
+        },
+        {
+          "@type": "Service",
+          "name": "Basic Document Check",
+          "provider": { "@id": "https://www.genstay.in/#organization" },
+          "areaServed": "Hyderabad",
+          "description": "Quick document validation covering property ownership, business license, and registration compliance before you make a decision.",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "INR",
+            "price": "2000",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "2000",
+              "maxPrice": "5000",
+              "priceCurrency": "INR"
+            }
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "Full Verification",
+          "provider": { "@id": "https://www.genstay.in/#organization" },
+          "areaServed": "Hyderabad",
+          "description": "Complete business and income verification including document checks, revenue record review, physical site inspection, and valuation guidance before you invest.",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "INR",
+            "price": "5000",
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "minPrice": "5000",
+              "maxPrice": "15000",
+              "priceCurrency": "INR"
+            }
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "End-to-End Deal Closure",
+          "provider": { "@id": "https://www.genstay.in/#organization" },
+          "areaServed": "Hyderabad",
+          "description": "Full-service support to find, verify, negotiate, and close a business or property deal safely, including legal expert connection and paperwork support. Paid only on successful closure.",
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "INR",
+            "description": "1% to 3% of deal value, paid on closure only"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.genstay.in/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What does Genstay verify before I buy or rent?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Genstay verifies ownership papers, key licenses, available income records, and site details before recommending a deal."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you only work in Hyderabad?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Genstay currently primarily serves Hyderabad and nearby areas, with expansion planned in phases."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does verification usually take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Basic checks typically take 2 to 3 days. Full verification usually takes 5 to 7 days, based on available records."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 
@@ -1806,6 +1914,42 @@
 
             .cta-buttons { flex-direction: column; align-items: center; }
         }
+
+        /* ============ FAQ ============ */
+        .faq-list { max-width: 760px; margin: 0 auto; }
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+            background: var(--white);
+            overflow: hidden;
+        }
+        .faq-item summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 20px 24px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            transition: transform 0.25s ease;
+        }
+        .faq-item[open] summary::after { transform: rotate(45deg); }
+        .faq-item p {
+            padding: 0 24px 20px;
+            color: var(--gray);
+            font-size: 0.98rem;
+        }
     </style>
 </head>
 <body>
@@ -1829,6 +1973,7 @@
                 <li><a href="#how">How It Works</a></li>
                 <li><a href="#verification">Verification</a></li>
                 <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#contact" class="nav-cta-btn">Talk to Us</a></li>
             </ul>
@@ -2268,6 +2413,31 @@
             </div>
         </section>
 
+        <!-- ========== FAQ ========== -->
+        <section class="section faq" id="faq">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-tag tag-dark">❓ FAQ</div>
+                    <h2 class="reveal">Quick answers before you decide.</h2>
+                    <p class="reveal reveal-d1">Common buyer questions answered clearly so you can decide faster and safer.</p>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>What does Genstay verify before I buy or rent?</summary>
+                        <p>We verify ownership papers, key licenses, available income records, and site details before recommending a deal.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Do you only work in Hyderabad?</summary>
+                        <p>Currently we primarily serve Hyderabad and nearby areas, with expansion planned in phases.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>How long does verification usually take?</summary>
+                        <p>Basic checks typically take 2 to 3 days. Full verification usually takes 5 to 7 days, based on available records.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
         <!-- ========== CONTACT ========== -->
         <section class="section contact" id="contact">
             <div class="section-container">
@@ -2360,7 +2530,7 @@
                 </div>
                 <div class="footer-col"><h4>Services</h4><ul><li><a href="#services">Find Opportunities</a></li><li><a href="#verification">Verification</a></li><li><a href="#services">Deal Closure</a></li><li><a href="#pricing">Pricing</a></li></ul></div>
                 <div class="footer-col"><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#roadmap">Roadmap</a></li><li><a href="#contact">Contact</a></li></ul></div>
-                <div class="footer-col"><h4>Support</h4><ul><li><a href="#">Help Center</a></li><li><a href="#">FAQ</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+                <div class="footer-col"><h4>Support</h4><ul><li><a href="#contact">Help Center</a></li><li><a href="#faq">FAQ</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
             </div>
             <div class="footer-bottom">
                 <p>© 2025 Genstay. All rights reserved. — Verified Deals. Safe Investments. Trusted Partner.</p>
