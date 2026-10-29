@@ -231,6 +231,11 @@ button:focus-visible,a.btn:focus-visible,input:focus-visible,select:focus-visibl
           <div><label for="scale">Resolution</label>
             <select id="scale"><option value="1">1× (standard)</option><option value="2">2× (sharper)</option></select></div>
         </div>
+        <label for="corners">Card corners</label>
+        <select id="corners">
+          <option value="square">Square edges (full-bleed, no white corners)</option>
+          <option value="rounded">Rounded corners (transparent outside)</option>
+        </select>
         <label class="check"><input type="checkbox" id="transp"> Transparent background (PNG / WebP)</label>
 
         <h3>Post to Threads</h3>
@@ -287,8 +292,8 @@ button:focus-visible,a.btn:focus-visible,input:focus-visible,select:focus-visibl
   };
   var DEFAULTS={user:'comment_fox',label:'VIEWS',num:'82.3K',period:'30 DAYS',range:'SEP 28 — OCT 27 2026',quick:'custom',
     style:'black',font:'anton',size:'portrait',fmt:'png',scale:'1',c1:'#000000',c2:'#1f1f1f',tc:'#ffffff',grad:false,angle:'135',
-    caption:'My Threads views this month 🎉',zoom:'100',px:'50',py:'50',bri:'100',con:'100',gray:false,transp:false};
-  var PRESET_KEYS=['user','label','num','period','range','style','font','size','c1','c2','tc','grad','angle','bri','con','gray'];
+    corners:'square',caption:'My Threads views this month 🎉',zoom:'100',px:'50',py:'50',bri:'100',con:'100',gray:false,transp:false};
+  var PRESET_KEYS=['user','label','num','period','range','style','font','size','corners','c1','c2','tc','grad','angle','bri','con','gray'];
   var CHECKS={gray:1,transp:1,grad:1};
   var MONTHS=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
   var LOGO=new Path2D('M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z');
@@ -418,7 +423,7 @@ button:focus-visible,a.btn:focus-visible,input:focus-visible,select:focus-visibl
     var sz=currentSize();
     if(cv.width!==sz.w||cv.height!==sz.h){cv.width=sz.w;cv.height=sz.h}
     updateUI();
-    render(ctx,sz,{transparent:transparentOn(),flat:false});
+    render(ctx,sz,{transparent:transparentOn(),flat:el.corners.value==='square'});
   }
 
   function loadFonts(){
@@ -556,7 +561,7 @@ button:focus-visible,a.btn:focus-visible,input:focus-visible,select:focus-visibl
     var sz=currentSize(),s=+el.scale.value||1,fmt=el.fmt.value,jpg=(fmt==='jpeg');
     var oc=document.createElement('canvas');oc.width=sz.w*s;oc.height=sz.h*s;
     var c=oc.getContext('2d');c.scale(s,s);
-    render(c,sz,{transparent:!jpg&&el.transp.checked,flat:jpg});
+    render(c,sz,{transparent:!jpg&&el.transp.checked,flat:jpg||el.corners.value==='square'});
     return new Promise(function(res){oc.toBlob(res,'image/'+fmt,0.95)});
   }
   function fileName(b){
@@ -584,7 +589,7 @@ button:focus-visible,a.btn:focus-visible,input:focus-visible,select:focus-visibl
   });
   function pngBlob(){
     var sz=currentSize(),s=+el.scale.value||1,oc=document.createElement('canvas');oc.width=sz.w*s;oc.height=sz.h*s;
-    var c=oc.getContext('2d');c.scale(s,s);render(c,sz,{transparent:transparentOn(),flat:false});
+    var c=oc.getContext('2d');c.scale(s,s);render(c,sz,{transparent:transparentOn(),flat:el.corners.value==='square'});
     return new Promise(function(res){oc.toBlob(res,'image/png')});
   }
 
