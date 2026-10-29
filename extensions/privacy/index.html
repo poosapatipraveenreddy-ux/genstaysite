@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy for Personal Browser OS</title>
+<meta name="description" content="Privacy Policy for Personal Browser OS. No servers, no analytics, no ads. Data stays on your device.">
+<link rel="canonical" href="https://www.genstay.in/extensions/privacy">
+<link rel="icon" type="image/png" href="/extensions/img/icon.png">
+<style>
+:root{--bg:#fff;--text:#1d2230;--muted:#5a6275;--line:#e3e6ee;--accent:#1B4D3E;--accent-link:#2D7A5F;--soft:#f5f6fa}
+@media (prefers-color-scheme:dark){:root{--bg:#12141b;--text:#e8eaf2;--muted:#9aa2b6;--line:#2a2f3d;--accent:#2D7A5F;--accent-link:#8ed081;--soft:#1a1d27}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:40px 22px 80px}
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;margin-bottom:28px}
+.back-link:hover{color:var(--accent-link)}
+h1{font-size:32px;line-height:1.2;margin:0 0 6px}
+.date{color:var(--muted);margin:0 0 28px}
+h2{font-size:20px;margin:36px 0 10px;padding-top:6px}
+p,li{color:var(--text)}
+ul{padding-left:22px} li{margin:6px 0}
+a{color:var(--accent-link);word-break:break-all}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:16px 0}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{text-align:left;padding:10px 14px;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:var(--soft);font-size:14px} tr:last-child td{border-bottom:0}
+td:first-child{font-weight:600;width:38%}
+footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+<a class="back-link" href="/extensions">← Back to Personal Browser OS</a>
+
+<h1>Privacy Policy for Personal Browser OS</h1>
+<p class="date">Effective date: October 29, 2026</p>
+
+<h2>Summary</h2>
+<ul>
+  <li>Personal Browser OS has no account system, no servers of its own, no analytics and no ads.</li>
+  <li>We do not collect, sell or share your personal information.</li>
+  <li>Your data stays on your device unless you turn on an optional feature that needs the internet (AI chat, weather or voice). Each of those is explained below.</li>
+  <li>You can see and delete your data at any time.</li>
+</ul>
+
+<h2>1. About this extension</h2>
+<p>Personal Browser OS (“the extension”) is a browser extension for Microsoft Edge and other Chromium browsers. It gives you a new tab page, a pet companion that can chat, speak, remember things and remind you, a Library of your tabs and history, and optional Google results styling. The developer is SI (Genstay). Contact: <a href="mailto:genstay.in@gmail.com">genstay.in@gmail.com</a>.</p>
+
+<h2>2. Data stored on your device</h2>
+<p>The extension saves the following in your browser's extension storage. This data stays on your device. It is not sent to the developer.</p>
+<ul>
+  <li>Settings and personalization: your name, avatar, theme, colors, font, wallpaper image, search engine, quick links, to-do list and notes.</li>
+  <li>Pet data: the pet you chose, its name, mood and affection level, and where it is on the screen.</li>
+  <li>Chats with the pet: conversation threads and short summaries of older messages that the extension writes to keep chats manageable.</li>
+  <li>Memories: anything you ask the pet to remember (for example “remember my locker code is 4821”).</li>
+  <li>Reminders: the text and time of each reminder you set.</li>
+  <li>Your AI API key, if you choose to add one.</li>
+  <li>A small cache of the weather and your approximate city.</li>
+</ul>
+
+<h2>3. Browser data the extension can read</h2>
+<p>The extension can read your browsing history, open tabs, recently closed tabs and site icons. It uses them only to show the Library on your own screen. It does not copy them to any server. If you press Delete on an item in the Library, that item is removed from your browser history.</p>
+<p>The extension adds the pet to the pages you visit. It does not read, record or keep the content of those pages in the background. It reads a page only when you ask the pet about it (for example, “summarize this page”).</p>
+<p>Reminders appear as notifications on your device. The floating pet window, if you turn it on, is a window your browser draws on your own screen. No data leaves your device because of it.</p>
+
+<h2>4. Optional features that send data over the internet</h2>
+<p>Everything in this section is optional and off until you turn it on.</p>
+<p><strong>AI chat (off by default):</strong> If you turn on AI and add your own API key, the extension sends requests straight from your browser to the provider you pick: OpenAI, Google (Gemini), OpenRouter or NVIDIA. The requests contain:</p>
+<ul>
+  <li>your messages to the pet and the recent conversation, plus the summary of older messages;</li>
+  <li>the pet's name and the simple settings it needs to answer in character;</li>
+  <li>up to 15 of your saved memories, so the pet can use them when relevant;</li>
+  <li>when you ask the pet about a page: the page title, the page address without its query string, and a short excerpt of the visible text (about the first 1,500 characters, with form fields, buttons and menus left out);</li>
+  <li>to choose what the pet does while idle: the time of day, a simple label for what you are doing (for example reading or typing), how many seconds you have been idle, the pet's current pose and your screen width.</li>
+</ul>
+<p>If AI is off, none of this is sent. The developer never receives it. Each provider handles the data under its own terms and privacy policy, so please read the policy of the provider you choose.</p>
+<p><strong>Weather:</strong> To show local weather, the extension asks public location services (get.geojs.io, ipwho.is and freeipapi.com) for your approximate location. Those services see your IP address, as any website does. If you set a city yourself, the city name is sent to the Open-Meteo geocoding service, and the coordinates are sent to Open-Meteo to get the forecast.</p>
+<p><strong>Voice (off by default):</strong> If you turn the microphone on, speech recognition is done by your browser's built-in speech service. Depending on your browser, the audio may be sent to the browser vendor (for example Google in Chrome) to be turned into text. The extension itself never records or stores audio. It only receives the resulting text. Spoken replies use the speech synthesis built into your browser, on your device. You can turn the microphone off at any time, and your browser shows when it is in use.</p>
+
+<h2>5. What we do not do</h2>
+<ul>
+  <li>We do not run servers that receive your data, and we do not have copies of it.</li>
+  <li>We do not track you across sites, fingerprint you, or use analytics or advertising tools.</li>
+  <li>We do not sell your data, and we do not share it with third parties except the services you switch on in section 4.</li>
+  <li>We do not use or transfer your data for anything unrelated to the features described here, and not for advertising, credit or lending decisions.</li>
+</ul>
+
+<h2>6. Permissions and why they are needed</h2>
+<div class="tw">
+  <table>
+    <thead>
+      <tr><th>Permission</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>storage and unlimitedStorage</td><td>Save your settings, chats, memories, reminders and wallpaper on your device.</td></tr>
+      <tr><td>history, tabs, sessions, favicon</td><td>Show open, recent and past pages in the Library.</td></tr>
+      <tr><td>sidePanel</td><td>Open the Library in the browser side panel.</td></tr>
+      <tr><td>alarms and notifications</td><td>Fire your reminders on time and show them as notifications.</td></tr>
+      <tr><td>offscreen</td><td>Keep the microphone listening when you switch tabs.</td></tr>
+      <tr><td>Access to all websites (content script)</td><td>Show the pet on the pages you visit. The extension does not read page content unless you ask the pet about the page.</td></tr>
+      <tr><td>Access to openai.com, Google AI, openrouter.ai, nvidia.com</td><td>Send your chat to the AI provider you selected, if AI is on.</td></tr>
+      <tr><td>Access to geojs.io, ipwho.is, freeipapi.com, open-meteo.com</td><td>Show local weather.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>7. How long we keep data and how to delete it</h2>
+<p>Data stays on your device until you delete it. You can delete chats, memories and reminders in the extension's Settings, or by telling the pet to “forget” something. Removing the extension deletes everything it stored. Data that an AI, weather or speech provider received is held under that provider's rules, so use its account tools or contact it to have that data deleted.</p>
+
+<h2>8. Security</h2>
+<p>Your API key is stored in your browser's extension storage on your device and is sent only to the provider you selected, over an encrypted connection. Anyone who can use your browser profile or computer could view it, so use a key you can revoke, and do not use the extension on a shared account you do not trust.</p>
+
+<h2>9. Children</h2>
+<p>The extension is not directed at children under 13, and we do not knowingly collect data from children. AI providers set their own age requirements.</p>
+
+<h2>10. Your rights</h2>
+<p>Because we hold none of your data, there is nothing for us to export or erase on our side. You can view and delete everything the extension stores through its Settings or by removing the extension. If you have a question about this policy, or a request under your local privacy law, write to <a href="mailto:genstay.in@gmail.com">genstay.in@gmail.com</a>.</p>
+
+<h2>11. Third-party privacy policies</h2>
+<ul>
+  <li>OpenAI: <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">https://openai.com/policies/privacy-policy</a></li>
+  <li>Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></li>
+  <li>OpenRouter: <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener">https://openrouter.ai/privacy</a></li>
+  <li>NVIDIA: <a href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/" target="_blank" rel="noopener">https://www.nvidia.com/en-us/about-nvidia/privacy-policy/</a></li>
+  <li>Open-Meteo: <a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener">https://open-meteo.com/en/terms</a></li>
+</ul>
+
+<h2>12. Changes to this policy</h2>
+<p>If we change how the extension handles data, we will update this page and the date at the top before the change takes effect.</p>
+
+<h2>13. Contact</h2>
+<p>SI (Genstay) · <a href="mailto:genstay.in@gmail.com">genstay.in@gmail.com</a></p>
+
+<footer>
+  <p>© 2026 Genstay. <a href="/extensions">Personal Browser OS</a> · <a href="/">Genstay Home</a></p>
+</footer>
+</main>
+</body>
+</html>
