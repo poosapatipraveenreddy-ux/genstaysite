@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+<title>Threads Views Card Studio — Free Stats Card Generator | Genstay</title>
+<meta name="description" content="Design and export custom Threads views and stats cards for your profile. 100% free, runs in your browser, custom colors, fonts, portraits, presets, and 1-click posting.">
+<meta name="keywords" content="threads views card, threads stats generator, threads card maker, threads growth, threads metrics, threads post generator, genstay">
+<meta name="author" content="Genstay">
+<meta name="theme-color" content="#141416">
+
+<link rel="canonical" href="https://www.genstay.in/threads-card">
+<link rel="alternate" hreflang="en-IN" href="https://www.genstay.in/threads-card">
+<link rel="alternate" hreflang="x-default" href="https://www.genstay.in/threads-card">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.genstay.in/threads-card">
+<meta property="og:title" content="Threads Views Card Studio — Free Stats Card Generator">
+<meta property="og:description" content="Design custom stats and views cards for Threads. Runs 100% in your browser with zero sign-ups.">
+<meta property="og:site_name" content="Genstay">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://www.genstay.in/genstay-logo.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://www.genstay.in/threads-card">
+<meta name="twitter:title" content="Threads Views Card Studio — Free Stats Card Generator">
+<meta name="twitter:description" content="Design custom stats and views cards for Threads. Runs 100% in your browser with zero sign-ups.">
+<meta name="twitter:image" content="https://www.genstay.in/genstay-logo.jpg">
+
+<link rel="icon" type="image/jpeg" href="/genstay-logo.jpg">
+
+<script type="application/ld+json" id="webapp-jsonld">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Threads Views Card Studio","applicationCategory":"DesignApplication","operatingSystem":"All","browserRequirements":"Any modern web browser","description":"A free web tool to design and export custom metric cards for Threads with customizable metrics, portrait art, fonts, themes, and direct posting.","url":"https://www.genstay.in/threads-card","image":"https://www.genstay.in/genstay-logo.jpg","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/InStock"},"publisher":{"@type":"Organization","name":"Genstay","url":"https://www.genstay.in/","logo":{"@type":"ImageObject","url":"https://www.genstay.in/genstay-logo.jpg"}}}
+</script>
+
+<script type="application/ld+json" id="faq-jsonld">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"What is Threads Views Card Studio?","acceptedAnswer":{"@type":"Answer","text":"Threads Views Card Studio is a free browser-based graphic designer that creates stylish milestone and stats cards for Threads posts (views, likes, replies, reposts, followers)."}},
+  {"@type":"Question","name":"Is my data or uploaded image sent to any server?","acceptedAnswer":{"@type":"Answer","text":"No. Everything runs entirely inside your browser on your device. Uploaded photos, custom stats, and presets never leave your machine."}},
+  {"@type":"Question","name":"Is Threads Views Card Studio free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, it is 100% free with no sign-ups, no accounts, and no watermarks."}},
+  {"@type":"Question","name":"How do I post my generated card to Threads?","acceptedAnswer":{"@type":"Answer","text":"Click 'Download' to save the image or 'Copy image', then click 'Open Threads' to open the Threads post composer and paste your card."}}
+]}
+</script>
+
+<script type="application/ld+json" id="breadcrumb-jsonld">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://www.genstay.in/"},
+  {"@type":"ListItem","position":2,"name":"Threads Views Card Studio","item":"https://www.genstay.in/threads-card"}
+]}
+</script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Oswald:wght@700&family=Roboto+Mono:wght@400;500&family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f5f5f6;--surface:#fff;--stage:#e9e9ec;--text:#141416;--muted:#6b6b72;--line:#e1e1e5;--accent:#141416;--accent-text:#fff;--soft:#f0f0f2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0c0d;--surface:#161618;--stage:#111113;--text:#f2f2f3;--muted:#9b9ba2;--line:#2a2a2e;--accent:#f2f2f3;--accent-text:#111;--soft:#1f1f22}}
+:root[data-theme="dark"]{--bg:#0c0c0d;--surface:#161618;--stage:#111113;--text:#f2f2f3;--muted:#9b9ba2;--line:#2a2a2e;--accent:#f2f2f3;--accent-text:#111;--soft:#1f1f22}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:16px 16px 48px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 0 18px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.logo{width:36px;height:36px;border-radius:10px;background:var(--accent);color:var(--accent-text);display:grid;place-items:center;flex:none}
+.logo svg{width:20px;height:20px;fill:currentColor}
+h1{margin:0;font-size:18px;line-height:1.2;font-weight:650;letter-spacing:-.01em}
+.sub{margin:2px 0 0;color:var(--muted);font-size:13px}
+.grid{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:880px){.grid{grid-template-columns:minmax(0,400px) 1fr;align-items:start}.preview{position:sticky;top:16px}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
+.stage{background:var(--stage);border-radius:12px;padding:20px 16px}
+canvas{display:block;width:auto;max-width:100%;height:auto;max-height:72vh;margin:0 auto;filter:drop-shadow(0 14px 28px rgba(0,0,0,.28))}
+canvas.checker{background:repeating-conic-gradient(#c9c9c9 0 25%,#fff 0 50%) 0 0/20px 20px;filter:none}
+.dropping .stage{outline:2px dashed var(--accent);outline-offset:-8px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.note{font-size:12px;color:var(--muted);margin:10px 0 0}
+.tabs{display:flex;gap:4px;padding:4px;background:var(--soft);border-radius:12px;overflow-x:auto;margin-bottom:14px}
+.tabs button{flex:1;white-space:nowrap;border:0;background:transparent;color:var(--muted);padding:8px 12px;border-radius:9px;font-size:13px;font-weight:600}
+.tabs button[aria-selected="true"]{background:var(--surface);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+h3{margin:18px 0 2px;font-size:14px;font-weight:650}
+label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
+label.check{display:flex;align-items:center;gap:8px;margin:14px 0 0}
+label.check input{width:auto;margin:0}
+input[type=text],select,textarea{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);font:inherit}
+textarea{resize:vertical;min-height:84px}
+input[type=file]{width:100%;font-size:13px;color:var(--muted)}
+input[type=range]{width:100%;margin:2px 0;accent-color:var(--accent)}
+input[type=color]{width:100%;height:40px;padding:3px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{padding:7px 12px;font-size:13px;border-radius:999px;background:var(--soft)}
+.chip.on{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+button,a.btn{padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit;font-weight:600;cursor:pointer;text-decoration:none;text-align:center;display:inline-block}
+button.primary,a.btn.primary{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
+button.sm,a.btn.sm{padding:8px 12px;font-size:13px}
+button:focus-visible,a.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.status{min-height:1.4em;font-size:13px;color:var(--muted);margin-top:10px}
+.hint{font-size:12px;color:var(--muted);margin:6px 0 0}
+.count{float:right;font-weight:400;color:var(--muted)}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"/></svg></div>
+      <div><h1>Threads Views Card Studio</h1><p class="sub">Design a stats card and export it. Everything runs in your browser.</p></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a class="sm btn" href="/" style="text-decoration:none;">← Genstay</a>
+      <button class="sm" id="themeBtn" type="button">Dark mode</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="panel preview" id="previewPanel" aria-label="Preview">
+      <div class="stage"><canvas id="cv" width="900" height="1215" aria-label="Card preview"></canvas></div>
+      <div class="actions">
+        <button class="primary" id="dl" type="button">Download</button>
+        <button id="share" type="button">Share / copy</button>
+      </div>
+      <div class="status" id="status" role="status"></div>
+      <p class="note" id="sizeNote">Portrait card · 900 × 1215 px</p>
+    </section>
+
+    <section class="panel" aria-label="Editor">
+      <div class="tabs" role="tablist">
+        <button role="tab" data-tabbtn="content" type="button">Content</button>
+        <button role="tab" data-tabbtn="image" type="button">Image</button>
+        <button role="tab" data-tabbtn="style" type="button">Style</button>
+        <button role="tab" data-tabbtn="export" type="button">Export &amp; post</button>
+        <button role="tab" data-tabbtn="presets" type="button">Presets</button>
+      </div>
+
+      <div class="tabpane" data-tab="content">
+        <label>Metric</label>
+        <div class="chips">
+          <button class="chip" type="button" data-label="VIEWS">Views</button>
+          <button class="chip" type="button" data-label="LIKES">Likes</button>
+          <button class="chip" type="button" data-label="REPLIES">Replies</button>
+          <button class="chip" type="button" data-label="REPOSTS">Reposts</button>
+          <button class="chip" type="button" data-label="FOLLOWERS">Followers</button>
+        </div>
+        <div class="row">
+          <div><label for="label">Label</label><input type="text" id="label" maxlength="14"></div>
+          <div><label for="num">Number</label><input type="text" id="num" maxlength="10"></div>
+        </div>
+        <p class="hint">Type a full number like 82300 and it becomes 82.3K when you leave the field.</p>
+        <label for="quick">Quick date range</label>
+        <select id="quick">
+          <option value="custom">Custom (type below)</option>
+          <option value="7">Last 7 days</option>
+          <option value="30">Last 30 days</option>
+          <option value="90">Last 90 days</option>
+        </select>
+        <div class="row">
+          <div><label for="period">Period</label><input type="text" id="period" maxlength="16"></div>
+          <div><label for="range">Date range</label><input type="text" id="range" maxlength="28"></div>
+        </div>
+        <label for="user">Username</label>
+        <input type="text" id="user" maxlength="30">
+        <p class="hint">Used for the placeholder artwork and the file name.</p>
+      </div>
+
+      <div class="tabpane hidden" data-tab="image">
+        <label for="img">Profile picture / top-right artwork</label>
+        <input type="file" id="img" accept="image/*">
+        <p class="hint">Pick a file, drop one onto the preview, or paste from the clipboard.</p>
+        <div id="imgBox" class="hidden">
+          <label for="zoom">Zoom</label>
+          <input type="range" id="zoom" min="100" max="400" step="1">
+          <div class="row">
+            <div><label for="px">Move left / right</label><input type="range" id="px" min="0" max="100" step="0.1"></div>
+            <div><label for="py">Move up / down</label><input type="range" id="py" min="0" max="100" step="0.1"></div>
+          </div>
+          <p class="hint">On a computer you can also drag the image inside the circle and scroll to zoom.</p>
+          <div id="filtBox">
+            <div class="row">
+              <div><label for="bri">Brightness</label><input type="range" id="bri" min="50" max="150" step="1"></div>
+              <div><label for="con">Contrast</label><input type="range" id="con" min="50" max="150" step="1"></div>
+            </div>
+            <label class="check"><input type="checkbox" id="gray"> Black and white</label>
+          </div>
+          <div class="btns"><button class="sm" id="rmImg" type="button">Remove image</button></div>
+        </div>
+      </div>
+
+      <div class="tabpane hidden" data-tab="style">
+        <label for="style">Card style</label>
+        <select id="style">
+          <option value="black">Black / clean (reference style)</option>
+          <option value="white">White / minimal</option>
+          <option value="sunset">Sunset gradient</option>
+          <option value="ocean">Ocean gradient</option>
+          <option value="rose">Rose gradient</option>
+          <option value="custom">Custom colors</option>
+        </select>
+        <div id="customBox" class="hidden">
+          <div class="row">
+            <div><label for="c1">Background color</label><input type="color" id="c1"></div>
+            <div><label for="tc">Text &amp; logo color</label><input type="color" id="tc"></div>
+          </div>
+          <label class="check"><input type="checkbox" id="grad"> Use a gradient</label>
+          <div id="gradBox" class="hidden">
+            <label for="c2">Second color</label>
+            <input type="color" id="c2">
+            <label for="angle">Gradient angle</label>
+            <input type="range" id="angle" min="0" max="360" step="1">
+          </div>
+          <p class="hint">Starts as black with white text. Picking Custom from another style copies that style’s colors first.</p>
+        </div>
+        <label for="font">Fonts</label>
+        <select id="font">
+          <option value="anton">Anton + Roboto Mono (reference)</option>
+          <option value="bebas">Bebas Neue + Space Mono</option>
+          <option value="oswald">Oswald + IBM Plex Mono</option>
+        </select>
+      </div>
+
+      <div class="tabpane hidden" data-tab="export">
+        <label for="size">Card size</label>
+        <select id="size">
+          <option value="portrait">Portrait · 900 × 1215</option>
+          <option value="square">Square · 1080 × 1080</option>
+          <option value="story">Story · 1080 × 1920</option>
+        </select>
+        <div class="row">
+          <div><label for="fmt">Format</label>
+            <select id="fmt"><option value="png">PNG</option><option value="jpeg">JPG</option><option value="webp">WebP</option></select></div>
+          <div><label for="scale">Resolution</label>
+            <select id="scale"><option value="1">1× (standard)</option><option value="2">2× (sharper)</option></select></div>
+        </div>
+        <label class="check"><input type="checkbox" id="transp"> Transparent background (PNG / WebP)</label>
+
+        <h3>Post to Threads</h3>
+        <label for="caption">Caption <span class="count" id="capCount">0 / 500</span></label>
+        <textarea id="caption" maxlength="500"></textarea>
+        <div class="btns">
+          <button class="sm" id="autoCap" type="button">Write caption for me</button>
+          <button class="sm" id="copyImg" type="button">1. Copy image</button>
+          <a class="btn sm primary" id="openThreads" href="https://www.threads.com/intent/post" target="_blank" rel="noopener">2. Open Threads</a>
+        </div>
+        <p class="hint">Threads can prefill the caption but not the image. Copy the image, open the composer, then paste it in.</p>
+      </div>
+
+      <div class="tabpane hidden" data-tab="presets">
+        <label for="presetName">Preset name</label>
+        <div class="row">
+          <input type="text" id="presetName" maxlength="40" placeholder="e.g. October recap">
+          <button class="sm" id="presetSave" type="button">Save preset</button>
+        </div>
+        <label for="presetList">Your presets</label>
+        <select id="presetList"></select>
+        <div class="btns">
+          <button class="sm" id="presetLoad" type="button">Load</button>
+          <button class="sm" id="presetDel" type="button">Delete</button>
+          <button class="sm" id="presetExport" type="button">Export file</button>
+          <button class="sm" id="presetImportBtn" type="button">Import file</button>
+        </div>
+        <input type="file" id="presetImport" accept="application/json,.json" class="hidden">
+        <p class="hint">Presets are stored in this browser. Export them to move to another device.</p>
+        <h3>Start over</h3>
+        <div class="btns"><button class="sm" id="reset" type="button">Reset demo</button></div>
+      </div>
+
+      <p class="note">Your last settings and image are remembered on this device only. This is a creative graphic: it is not connected to Threads analytics and does not verify real account statistics.</p>
+    </section>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Layout measured from the reference card (900 × 1215). Other sizes scale it with factor f.
+  var SIZES={portrait:{w:900,h:1215,f:1,name:'Portrait'},square:{w:1080,h:1080,f:1,name:'Square'},story:{w:1080,h:1920,f:1.2,name:'Story'}};
+  var FONTS={
+    anton:{cond:'Anton',cw:'400',mono:'Roboto Mono'},
+    bebas:{cond:'Bebas Neue',cw:'400',mono:'Space Mono'},
+    oswald:{cond:'Oswald',cw:'700',mono:'IBM Plex Mono'}
+  };
+  var THEMES={
+    black:{bg:['#000','#000'],fg:'#fff'},
+    white:{bg:['#fff','#fff'],fg:'#0a0a0a'},
+    sunset:{bg:['#ff7a18','#7b2ff7'],fg:'#fff'},
+    ocean:{bg:['#0f2027','#2c7a9b'],fg:'#fff'},
+    rose:{bg:['#ff9a9e','#fad0c4'],fg:'#2a0a12'}
+  };
+  var DEFAULTS={user:'comment_fox',label:'VIEWS',num:'82.3K',period:'30 DAYS',range:'SEP 28 — OCT 27 2026',quick:'custom',
+    style:'black',font:'anton',size:'portrait',fmt:'png',scale:'1',c1:'#000000',c2:'#1f1f1f',tc:'#ffffff',grad:false,angle:'135',
+    caption:'My Threads views this month 🎉',zoom:'100',px:'50',py:'50',bri:'100',con:'100',gray:false,transp:false};
+  var PRESET_KEYS=['user','label','num','period','range','style','font','size','c1','c2','tc','grad','angle','bri','con','gray'];
+  var CHECKS={gray:1,transp:1,grad:1};
+  var MONTHS=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  var LOGO=new Path2D('M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z');
+
+  var cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+  var ids=Object.keys(DEFAULTS),el={};
+  ids.forEach(function(k){el[k]=document.getElementById(k)});
+  var status=document.getElementById('status'),photo=null,queued=false,saveTimer=0;
+  var supportsFilter=('filter' in CanvasRenderingContext2D.prototype);
+
+  /* ---------- helpers ---------- */
+  function say(t){status.textContent=t}
+  function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+  function lsSet(k,v){try{localStorage.setItem(k,v);return true}catch(e){return false}}
+  function lsDel(k){try{localStorage.removeItem(k)}catch(e){}}
+  function getVal(k){return CHECKS[k]?el[k].checked:el[k].value}
+  function setVal(k,v){
+    var e=el[k];if(!e)return;
+    if(CHECKS[k]){e.checked=(v===true||v==='true');return}
+    v=String(v);if(e.maxLength>0)v=v.slice(0,e.maxLength);
+    var old=e.value;e.value=v;
+    if(e.tagName==='SELECT'&&e.value!==v)e.value=old;
+  }
+  function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+  function schedule(){
+    saveSoon();
+    if(queued)return;queued=true;requestAnimationFrame(function(){queued=false;draw()});
+  }
+  function saveSoon(){
+    clearTimeout(saveTimer);
+    saveTimer=setTimeout(function(){
+      var o={};ids.forEach(function(k){o[k]=getVal(k)});lsSet('tvcs:state',JSON.stringify(o));
+    },250);
+  }
+  function setDefaults(){ids.forEach(function(k){setVal(k,DEFAULTS[k])})}
+  function loadState(){
+    var raw=lsGet('tvcs:state');if(!raw)return;
+    try{var o=JSON.parse(raw);if(o&&typeof o==='object')ids.forEach(function(k){if(k in o)setVal(k,o[k])})}catch(e){}
+  }
+  function fontSet(){return FONTS[el.font.value]||FONTS.anton}
+  function theme(){
+    if(el.style.value==='custom')return{bg:[el.c1.value,el.grad.checked?el.c2.value:el.c1.value],fg:el.tc.value,angle:+el.angle.value||0};
+    var t=THEMES[el.style.value]||THEMES.black;return{bg:t.bg,fg:t.fg,angle:135};
+  }
+  function transparentOn(){return el.transp.checked&&el.fmt.value!=='jpeg'}
+  function artGeom(sz){return{cx:sz.w-176*sz.f,cy:174*sz.f,r:308*sz.f}}
+  function currentSize(){return SIZES[el.size.value]||SIZES.portrait}
+  function photoSide(){return Math.min(photo.width,photo.height)/((+el.zoom.value||100)/100)}
+
+  /* ---------- drawing ---------- */
+  function cardPath(c,W,H,R){
+    c.beginPath();c.moveTo(R,0);c.arcTo(W,0,W,H,R);c.arcTo(W,H,0,H,R);c.arcTo(0,H,0,0,R);c.arcTo(0,0,W,0,R);c.closePath();
+  }
+  function mono(c,F,s,x,y,size,weight,color){
+    c.font=weight+' '+size+'px "'+F.mono+'","DejaVu Sans Mono",ui-monospace,Menlo,Consolas,monospace';
+    c.fillStyle=color;c.fillText(s,x,y);
+  }
+  function art(c,sz,cx,cy,r){
+    var f=sz.f;
+    c.save();c.beginPath();c.arc(cx,cy,r,0,Math.PI*2);c.clip();
+    if(photo){
+      var side=photoSide(),sx=(+el.px.value/100)*(photo.width-side),sy=(+el.py.value/100)*(photo.height-side);
+      if(supportsFilter){
+        c.filter='brightness('+el.bri.value+'%) contrast('+el.con.value+'%) grayscale('+(el.gray.checked?1:0)+')';
+      }
+      c.drawImage(photo,sx,sy,side,side,cx-r,cy-r,2*r,2*r);
+      if(supportsFilter)c.filter='none';
+    }else{
+      c.fillStyle='#14100a';c.fillRect(cx-r,cy-r,2*r,2*r);
+      var g=c.createRadialGradient(cx-r*.3,cy-r*.3,r*.1,cx,cy,r*.9);
+      g.addColorStop(0,'#e6b660');g.addColorStop(1,'#5e3c12');
+      c.fillStyle=g;c.beginPath();c.arc(cx,cy,r*.88,0,Math.PI*2);c.fill();
+      c.lineWidth=8*f;c.strokeStyle='rgba(255,220,150,.35)';c.beginPath();c.arc(cx,cy,r*.8,0,Math.PI*2);c.stroke();
+      c.fillStyle='rgba(40,22,4,.75)';c.font='700 '+(190*f)+'px "'+fontSet().mono+'",monospace';c.textAlign='center';
+      c.fillText((el.user.value.trim()[0]||'?').toUpperCase(),cx-40*f,cy+110*f);c.textAlign='left';
+    }
+    c.restore();
+  }
+
+  function render(c,sz,o){
+    var W=sz.w,H=sz.h,f=sz.f,t=theme(),F=fontSet(),LEFT=87*f;
+    c.clearRect(0,0,W,H);
+    c.save();
+    if(!o.flat){cardPath(c,W,H,96*f);c.clip()}
+    if(!o.transparent){
+      var a=t.angle*Math.PI/180,vx=Math.sin(a),vy=-Math.cos(a),L=(Math.abs(W*vx)+Math.abs(H*vy))/2;
+      var g=c.createLinearGradient(W/2-vx*L,H/2-vy*L,W/2+vx*L,H/2+vy*L);
+      g.addColorStop(0,t.bg[0]);g.addColorStop(1,t.bg[1]);
+      c.fillStyle=g;c.fillRect(0,0,W,H);
+    }
+    c.textBaseline='alphabetic';c.textAlign='left';
+
+    var ag=artGeom(sz);art(c,sz,ag.cx,ag.cy,ag.r);   // large circle, bleeds off the top-right
+
+    c.save();c.translate(83*f,86*f);c.scale(4.7*f,4.7*f);c.fillStyle=t.fg;c.fill(LOGO);c.restore();
+
+    mono(c,F,(el.label.value||'').toUpperCase(),LEFT,H-647*f,52*f,'500',t.fg);
+
+    var num=el.num.value||'0',cond='",Impact,"Arial Narrow",sans-serif';
+    c.font=F.cw+' 100px "'+F.cond+cond;
+    var capAsc=c.measureText('8').actualBoundingBoxAscent||72;
+    var size=226*f/capAsc*100;                 // cap height of the big number
+    c.font=F.cw+' '+size+'px "'+F.cond+cond;
+    var m=c.measureText(num),maxW=W-LEFT-60*f;
+    if(m.width>maxW){size*=maxW/m.width;c.font=F.cw+' '+size+'px "'+F.cond+cond;m=c.measureText(num)}
+    c.fillStyle=t.fg;c.fillText(num,92*f+(m.actualBoundingBoxLeft||0),H-284*f);
+
+    mono(c,F,(el.period.value||'').toUpperCase(),LEFT,H-161*f,46*f,'400',t.fg);
+    mono(c,F,(el.range.value||'').toUpperCase(),LEFT,H-89*f,46*f,'400',t.fg);
+    c.restore();
+  }
+
+  function updateUI(){
+    var sz=currentSize();
+    el.customBox=el.customBox||document.getElementById('customBox');
+    document.getElementById('customBox').classList.toggle('hidden',el.style.value!=='custom');
+    document.getElementById('gradBox').classList.toggle('hidden',!el.grad.checked);
+    document.getElementById('imgBox').classList.toggle('hidden',!photo);
+    document.getElementById('filtBox').classList.toggle('hidden',!supportsFilter);
+    document.querySelectorAll('.chip').forEach(function(c){c.classList.toggle('on',c.dataset.label===(el.label.value||'').toUpperCase())});
+    el.transp.disabled=(el.fmt.value==='jpeg');
+    cv.classList.toggle('checker',transparentOn());
+    document.getElementById('sizeNote').innerHTML=sz.name+' card · '+sz.w+' × '+sz.h+' px · Your image stays on this device';
+  }
+
+  function draw(){
+    var sz=currentSize();
+    if(cv.width!==sz.w||cv.height!==sz.h){cv.width=sz.w;cv.height=sz.h}
+    updateUI();
+    render(ctx,sz,{transparent:transparentOn(),flat:false});
+  }
+
+  function loadFonts(){
+    var F=fontSet();
+    if(document.fonts&&document.fonts.load){
+      Promise.all([
+        document.fonts.load(F.cw+' 100px "'+F.cond+'"'),
+        document.fonts.load('500 52px "'+F.mono+'"'),
+        document.fonts.load('400 46px "'+F.mono+'"')
+      ]).then(schedule,schedule);
+    }
+  }
+
+  /* ---------- image loading, pan and zoom ---------- */
+  function useImage(im,fresh){
+    var iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height;
+    var m=Math.min(1,2000/Math.max(iw,ih)),c=document.createElement('canvas');
+    c.width=Math.max(1,Math.round(iw*m));c.height=Math.max(1,Math.round(ih*m));
+    c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+    photo=c;
+    if(fresh){setVal('zoom',DEFAULTS.zoom);setVal('px',DEFAULTS.px);setVal('py',DEFAULTS.py);persistPhoto()}
+    schedule();
+  }
+  function persistPhoto(){
+    if(!photo)return;
+    try{
+      var m=Math.min(1,1000/Math.max(photo.width,photo.height)),c=document.createElement('canvas');
+      c.width=Math.round(photo.width*m);c.height=Math.round(photo.height*m);
+      var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(photo,0,0,c.width,c.height);
+      lsSet('tvcs:img',c.toDataURL('image/jpeg',.85));
+    }catch(e){}
+  }
+  function loadFile(f){
+    if(!f)return;
+    if(!/^image\//.test(f.type)){say('That file is not an image. Try a JPG, PNG or WebP.');return}
+    var url=URL.createObjectURL(f),im=new Image();
+    im.onload=function(){URL.revokeObjectURL(url);useImage(im,true);say('Image loaded. Adjust zoom and position under Image.')};
+    im.onerror=function(){URL.revokeObjectURL(url);say('That file could not be read as an image.')};
+    im.src=url;
+  }
+  function clearPhoto(){photo=null;lsDel('tvcs:img');document.getElementById('img').value='';schedule()}
+
+  document.getElementById('img').addEventListener('change',function(e){loadFile(e.target.files&&e.target.files[0])});
+  document.getElementById('rmImg').addEventListener('click',function(){clearPhoto();say('Image removed.')});
+
+  // Drag and drop anywhere on the page
+  var panel=document.getElementById('previewPanel');
+  window.addEventListener('dragover',function(e){e.preventDefault();panel.classList.add('dropping')});
+  window.addEventListener('dragleave',function(e){if(!e.relatedTarget)panel.classList.remove('dropping')});
+  window.addEventListener('drop',function(e){
+    e.preventDefault();panel.classList.remove('dropping');
+    var f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];loadFile(f);
+  });
+  // Paste an image from the clipboard
+  window.addEventListener('paste',function(e){
+    var items=(e.clipboardData&&e.clipboardData.items)||[];
+    for(var i=0;i<items.length;i++){
+      if(items[i].kind==='file'&&/^image\//.test(items[i].type)){loadFile(items[i].getAsFile());e.preventDefault();return}
+    }
+  });
+
+  // Mouse drag to reposition, wheel to zoom (touch uses the sliders)
+  var drag=null;
+  function canvasPos(e){var r=cv.getBoundingClientRect();return{x:(e.clientX-r.left)*cv.width/r.width,y:(e.clientY-r.top)*cv.height/r.height,k:cv.width/r.width}}
+  function overArt(e){
+    if(!photo)return false;
+    var p=canvasPos(e),g=artGeom(currentSize());
+    return Math.hypot(p.x-g.cx,p.y-g.cy)<=g.r;
+  }
+  cv.addEventListener('pointerdown',function(e){
+    if(e.pointerType==='touch'||!overArt(e))return;
+    drag={x:e.clientX,y:e.clientY};cv.setPointerCapture(e.pointerId);cv.style.cursor='grabbing';e.preventDefault();
+  });
+  cv.addEventListener('pointermove',function(e){
+    if(!drag){if(e.pointerType!=='touch')cv.style.cursor=overArt(e)?'grab':'';return}
+    var k=canvasPos(e).k,g=artGeom(currentSize()),side=photoSide();
+    var dx=(e.clientX-drag.x)*k,dy=(e.clientY-drag.y)*k;
+    drag.x=e.clientX;drag.y=e.clientY;
+    var per=side/(2*g.r),slackX=photo.width-side,slackY=photo.height-side;
+    if(slackX>1)el.px.value=clamp(+el.px.value-dx*per/slackX*100,0,100);
+    if(slackY>1)el.py.value=clamp(+el.py.value-dy*per/slackY*100,0,100);
+    schedule();
+  });
+  function endDrag(){drag=null;cv.style.cursor=''}
+  cv.addEventListener('pointerup',endDrag);
+  cv.addEventListener('pointercancel',endDrag);
+  cv.addEventListener('wheel',function(e){
+    if(!overArt(e))return;
+    e.preventDefault();
+    el.zoom.value=clamp(+el.zoom.value-e.deltaY*0.3,100,400);schedule();
+  },{passive:false});
+
+  /* ---------- text helpers ---------- */
+  function smartNumber(v){
+    var s=String(v).replace(/[,\s]/g,'');
+    if(!/^\d+(\.\d+)?$/.test(s))return null;
+    var n=parseFloat(s);
+    function t(x){return (Math.round(x*10)/10).toString()}
+    if(n>=1e9)return t(n/1e9)+'B';
+    if(n>=1e6)return t(n/1e6)+'M';
+    if(n>=1e3)return t(n/1e3)+'K';
+    return null;
+  }
+  el.num.addEventListener('change',function(){
+    var r=smartNumber(el.num.value);
+    if(r){el.num.value=r;say('Formatted as '+r+'.');schedule()}
+  });
+  function fmtRange(days){
+    var end=new Date(),start=new Date(end);start.setDate(end.getDate()-(days-1));
+    var s=MONTHS[start.getMonth()]+' '+start.getDate()+(start.getFullYear()!==end.getFullYear()?' '+start.getFullYear():'');
+    return s+' — '+MONTHS[end.getMonth()]+' '+end.getDate()+' '+end.getFullYear();
+  }
+  el.quick.addEventListener('change',function(){
+    var d=parseInt(el.quick.value,10);
+    if(d){el.period.value=d+' DAYS';el.range.value=fmtRange(d);schedule()}
+  });
+  ['period','range'].forEach(function(k){el[k].addEventListener('input',function(){el.quick.value='custom'})});
+
+  function hex6(h){return h.length===4?'#'+h[1]+h[1]+h[2]+h[2]+h[3]+h[3]:h}
+  var lastStyle=el.style.value;
+  el.style.addEventListener('change',function(){
+    var v=el.style.value,t=THEMES[lastStyle];
+    if(v==='custom'&&t){
+      el.c1.value=hex6(t.bg[0]);el.c2.value=hex6(t.bg[1]);el.tc.value=hex6(t.fg);
+      el.grad.checked=(t.bg[0]!==t.bg[1]);el.angle.value=135;
+    }
+    lastStyle=v;
+  });
+  el.font.addEventListener('change',loadFonts);
+  ids.forEach(function(k){el[k].addEventListener('input',schedule);el[k].addEventListener('change',schedule)});
+
+  /* ---------- export ---------- */
+  function extOf(b){return b.type==='image/jpeg'?'jpg':b.type==='image/webp'?'webp':'png'}
+  function makeBlob(){
+    var sz=currentSize(),s=+el.scale.value||1,fmt=el.fmt.value,jpg=(fmt==='jpeg');
+    var oc=document.createElement('canvas');oc.width=sz.w*s;oc.height=sz.h*s;
+    var c=oc.getContext('2d');c.scale(s,s);
+    render(c,sz,{transparent:!jpg&&el.transp.checked,flat:jpg});
+    return new Promise(function(res){oc.toBlob(res,'image/'+fmt,0.95)});
+  }
+  function fileName(b){
+    var sz=el.size.value==='portrait'?'':'-'+el.size.value;
+    return 'threads-views-'+(el.user.value.trim()||'card').replace(/[^\w-]+/g,'_')+sz+'.'+extOf(b);
+  }
+  function formatNote(b){return b.type!=='image/'+el.fmt.value?' (this browser can’t make '+el.fmt.value.toUpperCase()+', so it used '+extOf(b).toUpperCase()+')':''}
+  function saveBlob(b,name){
+    var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;
+    document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
+  }
+
+  document.getElementById('dl').addEventListener('click',async function(){
+    var b=await makeBlob();if(!b){say('Export failed.');return}
+    saveBlob(b,fileName(b));say('Downloaded'+formatNote(b)+'.');
+  });
+  document.getElementById('share').addEventListener('click',async function(){
+    var b=await makeBlob();if(!b){say('Export failed.');return}
+    try{
+      var file=new File([b],fileName(b),{type:b.type});
+      if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file]});say('Shared.');return}
+      if(navigator.clipboard&&window.ClipboardItem){await navigator.clipboard.write([new ClipboardItem({'image/png':b.type==='image/png'?b:await pngBlob()})]);say('Image copied to clipboard.');return}
+      say('Sharing is not supported here. Use Download instead.');
+    }catch(err){say('Share cancelled or blocked. Use Download instead.')}
+  });
+  function pngBlob(){
+    var sz=currentSize(),s=+el.scale.value||1,oc=document.createElement('canvas');oc.width=sz.w*s;oc.height=sz.h*s;
+    var c=oc.getContext('2d');c.scale(s,s);render(c,sz,{transparent:transparentOn(),flat:false});
+    return new Promise(function(res){oc.toBlob(res,'image/png')});
+  }
+
+  document.getElementById('reset').addEventListener('click',function(){
+    setDefaults();clearPhoto();lsDel('tvcs:state');updateCaption();loadFonts();schedule();say('Demo reset.');
+  });
+
+  /* ---------- presets ---------- */
+  var plist=document.getElementById('presetList'),pname=document.getElementById('presetName');
+  function getPresets(){
+    try{var o=JSON.parse(lsGet('tvcs:presets')||'{}');return(o&&typeof o==='object'&&!Array.isArray(o))?o:{}}catch(e){return{}}
+  }
+  function putPresets(o){return lsSet('tvcs:presets',JSON.stringify(o))}
+  function refreshPresets(select){
+    var p=getPresets(),names=Object.keys(p).sort();
+    plist.innerHTML='';
+    if(!names.length){var o=document.createElement('option');o.value='';o.textContent='No presets yet';plist.appendChild(o);return}
+    names.forEach(function(n){var o=document.createElement('option');o.value=n;o.textContent=n;plist.appendChild(o)});
+    if(select&&p[select])plist.value=select;
+  }
+  document.getElementById('presetSave').addEventListener('click',function(){
+    var name=pname.value.trim();
+    if(!name){say('Give the preset a name first.');return}
+    if(name==='__proto__'){say('Please choose a different name.');return}
+    var p=getPresets(),o={};PRESET_KEYS.forEach(function(k){o[k]=getVal(k)});
+    p[name]=o;
+    if(putPresets(p)){refreshPresets(name);say('Saved preset “'+name+'”.')}else say('Could not save. Browser storage may be blocked.');
+  });
+  document.getElementById('presetLoad').addEventListener('click',function(){
+    var p=getPresets()[plist.value];if(!p){say('Pick a preset to load.');return}
+    PRESET_KEYS.forEach(function(k){if(k in p)setVal(k,p[k])});
+    el.quick.value='custom';loadFonts();schedule();say('Loaded “'+plist.value+'”.');
+  });
+  document.getElementById('presetDel').addEventListener('click',function(){
+    var p=getPresets(),n=plist.value;if(!p[n]){say('Pick a preset to delete.');return}
+    delete p[n];putPresets(p);refreshPresets();say('Deleted “'+n+'”.');
+  });
+  document.getElementById('presetExport').addEventListener('click',function(){
+    var p=getPresets();if(!Object.keys(p).length){say('Save a preset first, then export.');return}
+    saveBlob(new Blob([JSON.stringify(p,null,2)],{type:'application/json'}),'threads-card-presets.json');say('Presets exported.');
+  });
+  var pimp=document.getElementById('presetImport');
+  document.getElementById('presetImportBtn').addEventListener('click',function(){pimp.click()});
+  pimp.addEventListener('change',function(){
+    var f=pimp.files&&pimp.files[0];if(!f)return;
+    var rd=new FileReader();
+    rd.onload=function(){
+      try{
+        var o=JSON.parse(rd.result);
+        if(!o||typeof o!=='object'||Array.isArray(o))throw new Error('bad');
+        var p=getPresets(),n=0;
+        Object.keys(o).slice(0,50).forEach(function(name){
+          var src=o[name];if(!src||typeof src!=='object'||name==='__proto__')return;
+          var clean={};
+          PRESET_KEYS.forEach(function(k){
+            if(!(k in src))return;var v=src[k];
+            if(k==='gray')clean[k]=(v===true);
+            else if(typeof v==='string'||typeof v==='number')clean[k]=String(v).slice(0,40);
+          });
+          p[String(name).slice(0,40)]=clean;n++;
+        });
+        putPresets(p);refreshPresets();say('Imported '+n+' preset'+(n===1?'':'s')+'.');
+      }catch(err){say('That file is not a valid presets file.')}
+      pimp.value='';
+    };
+    rd.onerror=function(){say('Could not read that file.')};
+    rd.readAsText(f);
+  });
+
+  /* ---------- tabs, chips, caption, theme ---------- */
+  var tabBtns=document.querySelectorAll('[data-tabbtn]'),panes=document.querySelectorAll('.tabpane');
+  function showTab(n){
+    tabBtns.forEach(function(b){var on=b.dataset.tabbtn===n;b.setAttribute('aria-selected',on?'true':'false')});
+    panes.forEach(function(p){p.classList.toggle('hidden',p.dataset.tab!==n)});
+  }
+  tabBtns.forEach(function(b){b.addEventListener('click',function(){showTab(b.dataset.tabbtn)})});
+  showTab('content');
+  document.querySelectorAll('.chip').forEach(function(c){c.addEventListener('click',function(){el.label.value=c.dataset.label;schedule()})});
+
+  var capCount=document.getElementById('capCount'),openT=document.getElementById('openThreads');
+  function updateCaption(){
+    capCount.textContent=el.caption.value.length+' / 500';
+    openT.href='https://www.threads.com/intent/post?text='+encodeURIComponent(el.caption.value);
+  }
+  el.caption.addEventListener('input',updateCaption);
+  document.getElementById('autoCap').addEventListener('click',function(){
+    el.caption.value=(el.num.value||'0')+' '+(el.label.value||'views').toLowerCase()+' in the last '+(el.period.value||'30 days').toLowerCase()+'. Thank you for reading! 🙌';
+    updateCaption();schedule();
+  });
+  document.getElementById('copyImg').addEventListener('click',async function(){
+    try{
+      if(!(navigator.clipboard&&window.ClipboardItem)){say('Copying images is not supported here. Use Download instead.');return}
+      await navigator.clipboard.write([new ClipboardItem({'image/png':pngBlob()})]);
+      say('Image copied. Now open Threads and paste it into your post.');
+    }catch(err){say('Copy was blocked. Use Download instead.')}
+  });
+
+  var themeBtn=document.getElementById('themeBtn'),root=document.documentElement;
+  function effTheme(){return root.getAttribute('data-theme')||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}
+  function themeLabel(){themeBtn.textContent=effTheme()==='dark'?'Light mode':'Dark mode'}
+  var th=lsGet('tvcs:theme');if(th==='light'||th==='dark')root.setAttribute('data-theme',th);
+  themeLabel();
+  themeBtn.addEventListener('click',function(){var n=effTheme()==='dark'?'light':'dark';root.setAttribute('data-theme',n);lsSet('tvcs:theme',n);themeLabel()});
+
+  /* ---------- start ---------- */
+  setDefaults();loadState();refreshPresets();updateCaption();draw();loadFonts();
+  var saved=lsGet('tvcs:img');
+  if(saved){
+    var si=new Image();
+    si.onload=function(){useImage(si,false)};
+    si.src=saved;
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/threads", "destination": "/threads-card" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
