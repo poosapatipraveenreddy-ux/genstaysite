@@ -233,8 +233,8 @@ button:focus-visible,a.btn:focus-visible,input:focus-visible,select:focus-visibl
         </div>
         <label for="corners">Card corners</label>
         <select id="corners">
-          <option value="square">Square edges (full-bleed, matches PNG edges — no excess corners)</option>
-          <option value="rounded">Rounded corners (transparent outside)</option>
+          <option value="rounded">Rounded corners (same as the card)</option>
+          <option value="square">Square edges (full-bleed, no transparent corners)</option>
         </select>
         <label class="check"><input type="checkbox" id="transp"> Transparent background (PNG / WebP)</label>
 
@@ -292,7 +292,7 @@ button:focus-visible,a.btn:focus-visible,input:focus-visible,select:focus-visibl
   };
   var DEFAULTS={user:'comment_fox',label:'VIEWS',num:'82.3K',period:'30 DAYS',range:'SEP 28 — OCT 27 2026',quick:'custom',
     style:'black',font:'anton',size:'portrait',fmt:'png',scale:'1',c1:'#000000',c2:'#1f1f1f',tc:'#ffffff',grad:false,angle:'135',
-    corners:'square',caption:'My Threads views this month 🎉',zoom:'100',px:'50',py:'50',bri:'100',con:'100',gray:false,transp:false};
+    corners:'rounded',caption:'My Threads views this month 🎉',zoom:'100',px:'50',py:'50',bri:'100',con:'100',gray:false,transp:false};
   var PRESET_KEYS=['user','label','num','period','range','style','font','size','corners','c1','c2','tc','grad','angle','bri','con','gray'];
   var CHECKS={gray:1,transp:1,grad:1};
   var MONTHS=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
@@ -325,13 +325,13 @@ button:focus-visible,a.btn:focus-visible,input:focus-visible,select:focus-visibl
   function saveSoon(){
     clearTimeout(saveTimer);
     saveTimer=setTimeout(function(){
-      var o={v:3};ids.forEach(function(k){o[k]=getVal(k)});lsSet('tvcs:state',JSON.stringify(o));
+      var o={v:2};ids.forEach(function(k){o[k]=getVal(k)});lsSet('tvcs:state',JSON.stringify(o));
     },250);
   }
   function setDefaults(){ids.forEach(function(k){setVal(k,DEFAULTS[k])})}
   function loadState(){
     var raw=lsGet('tvcs:state');if(!raw)return;
-    try{var o=JSON.parse(raw);if(o&&typeof o==='object')ids.forEach(function(k){if(k in o&&!(k==='corners'&&o.v!==3))setVal(k,o[k])})}catch(e){}
+    try{var o=JSON.parse(raw);if(o&&typeof o==='object')ids.forEach(function(k){if(k in o&&!(k==='corners'&&o.v!==2))setVal(k,o[k])})}catch(e){}
   }
   function fontSet(){return FONTS[el.font.value]||FONTS.anton}
   function theme(){
