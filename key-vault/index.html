@@ -22,27 +22,39 @@
   <meta property="og:description" content="A Chrome extension that opens in the side panel. Keep API keys and credentials in an encrypted vault on your own device with Personal and per-client workspaces.">
   <meta property="og:site_name" content="Genstay">
   <meta property="og:locale" content="en_IN">
-  <meta property="og:image" content="https://www.genstay.in/genstay-logo.jpg">
+  <meta property="og:image" content="https://www.genstay.in/key-vault/icons/128.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://www.genstay.in/key-vault">
   <meta name="twitter:title" content="Key Vault — Encrypted API Key &amp; Credential Manager">
   <meta name="twitter:description" content="A Chrome extension that opens in the side panel. Keep API keys and credentials in an encrypted vault on your own device.">
-  <meta name="twitter:image" content="https://www.genstay.in/genstay-logo.jpg">
+  <meta name="twitter:image" content="https://www.genstay.in/key-vault/icons/128.png">
 
-  <link rel="icon" type="image/jpeg" href="/genstay-logo.jpg">
+  <link rel="icon" type="image/png" href="/key-vault/icons/128.png">
+  <link rel="apple-touch-icon" href="/key-vault/icons/128.png">
 
   <script type="application/ld+json" id="software-jsonld">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Key Vault",
+    "softwareVersion": "1.0.0",
     "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Google Chrome (Desktop)",
-    "browserRequirements": "Google Chrome (Manifest V3 Side Panel support)",
+    "operatingSystem": "Google Chrome (Desktop 120+), Microsoft Edge, Brave",
+    "browserRequirements": "Google Chrome 120+ (Manifest V3 Side Panel support)",
     "description": "Key Vault is a Chrome browser extension that opens in the side panel and lets freelancers and developers keep API keys and credentials in an encrypted vault stored on their own device. Keys are organized into Personal and per-client workspaces. The extension is free for personal use, and a monthly or yearly subscription unlocks unlimited client workspaces. After paying, the customer receives a license key by email and pastes it into the extension to activate it. No physical goods or services are involved.",
     "url": "https://www.genstay.in/key-vault",
-    "image": "https://www.genstay.in/genstay-logo.jpg",
+    "image": "https://www.genstay.in/key-vault/icons/128.png",
+    "featureList": [
+      "Local device AES-GCM encrypted vault",
+      "Master password wrapped with PBKDF2-SHA256 (600k iterations)",
+      "4-digit PIN quick unlock sealed with IndexedDB device key",
+      "Opens directly in Chrome side panel",
+      "Personal & per-client workspaces",
+      "30-second automatic clipboard clearing",
+      "Auto-lock on idle and browser close",
+      "Optional Chrome profile encrypted sync"
+    ],
     "offers": [
       {
         "@type": "Offer",
@@ -110,10 +122,18 @@
       },
       {
         "@type": "Question",
+        "name": "What security algorithms protect my keys?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Keys are encrypted using standard AES-GCM. The vault key is protected by your master password via PBKDF2-SHA256 with 600,000 iterations. Quick unlock uses a 4-digit PIN sealed by an internal device key in IndexedDB. Decrypted keys live in temporary session memory only and are never stored in plaintext."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Are my API keys sent to any cloud server?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Your keys and credentials stay in an encrypted vault stored strictly on your own device. Nothing is uploaded to cloud servers or third parties."
+          "text": "No. Your keys and credentials stay in an encrypted vault stored strictly on your own device. Nothing is uploaded to cloud servers or third parties. If you enable Chrome sync, only the encrypted ciphertext is synced across your own Chrome profile."
         }
       }
     ]
@@ -134,7 +154,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -151,6 +171,7 @@
       --border: #D8E4DD;
       --radius: 14px;
       --shadow: 0 4px 24px rgba(12, 27, 22, 0.08);
+      --mono: 'JetBrains Mono', monospace;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -159,20 +180,22 @@
     a { color: var(--primary-light); }
     .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
-    .topbar { background: var(--white); border-bottom: 1px solid var(--border); }
+    .topbar { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
     .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
     .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 1.15rem; color: var(--dark); }
     .brand img { width: 34px; height: 34px; border-radius: 8px; }
     .brand span em { font-style: normal; color: var(--primary-light); }
-    .topbar nav a { text-decoration: none; color: var(--gray); font-weight: 500; font-size: 0.92rem; margin-left: 20px; }
+    .topbar nav a { text-decoration: none; color: var(--gray); font-weight: 500; font-size: 0.92rem; margin-left: 20px; transition: color 0.15s ease; }
     .topbar nav a:hover { color: var(--primary); }
 
     .hero { background: linear-gradient(160deg, #0C1B16 0%, #1B4D3E 60%, #2D7A5F 100%); color: var(--white); padding: 76px 0 64px; text-align: center; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); border-radius: 999px; padding: 6px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 22px; }
+    .hero-icon { width: 72px; height: 72px; margin: 0 auto 20px; background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.25); border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    .hero-icon img { width: 48px; height: 48px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); border-radius: 999px; padding: 6px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 18px; }
     .hero h1 { font-size: clamp(2rem, 4.5vw, 3.1rem); font-weight: 800; line-height: 1.15; margin-bottom: 18px; max-width: 820px; margin-left: auto; margin-right: auto; }
-    .hero .tagline { font-size: clamp(1.05rem, 2vw, 1.25rem); color: rgba(255,255,255,0.88); max-width: 740px; margin: 0 auto 32px; line-height: 1.65; }
+    .hero .tagline { font-size: clamp(1.05rem, 2vw, 1.25rem); color: rgba(255,255,255,0.88); max-width: 760px; margin: 0 auto 32px; line-height: 1.65; }
     .hero-cta { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-bottom: 12px; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 10px; font-weight: 700; font-size: 0.98rem; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 10px; font-weight: 700; font-size: 0.98rem; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease; cursor: pointer; }
     .btn:hover { transform: translateY(-1px); }
     .btn-primary { background: var(--accent); color: var(--dark); box-shadow: 0 6px 20px rgba(212,168,67,0.35); }
     .btn-ghost { background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.3); }
@@ -191,6 +214,21 @@
     .feature h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; color: var(--dark); }
     .feature p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
 
+    /* Security Specs Table */
+    .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 24px; }
+    .spec-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+    .spec-card h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .spec-list { list-style: none; }
+    .spec-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+    .spec-list li:last-child { border-bottom: none; }
+    .spec-list span.key { color: var(--gray); font-weight: 500; }
+    .spec-list span.val { color: var(--dark); font-weight: 600; font-family: var(--mono); font-size: 0.88rem; text-align: right; }
+
+    /* Keyboard Shortcuts */
+    .kbd-wrap { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 32px; }
+    .kbd-chip { display: flex; align-items: center; gap: 10px; background: var(--white); border: 1px solid var(--border); padding: 10px 18px; border-radius: 10px; font-size: 0.9rem; font-weight: 500; }
+    kbd { background: var(--primary-lighter); border: 1px solid var(--border); border-radius: 6px; padding: 3px 8px; font-family: var(--mono); font-size: 0.82rem; font-weight: 700; color: var(--primary); }
+
     /* Pricing Cards */
     .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 24px; max-width: 820px; margin: 0 auto; }
     .price-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 30px; box-shadow: var(--shadow); position: relative; display: flex; flex-direction: column; }
@@ -208,6 +246,14 @@
     .policy-box { background: var(--primary-lighter); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; max-width: 820px; margin: 40px auto 0; }
     .policy-box h4 { font-size: 1.1rem; color: var(--primary); margin-bottom: 10px; font-weight: 700; }
     .policy-box p { font-size: 0.93rem; color: var(--dark); line-height: 1.65; margin-bottom: 8px; }
+
+    /* Steps */
+    .steps { counter-reset: step; max-width: 720px; margin: 0 auto; display: grid; gap: 18px; }
+    .step { display: flex; gap: 18px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; }
+    .sec-alt .step { background: var(--light); }
+    .step::before { counter-increment: step; content: counter(step); flex: 0 0 40px; height: 40px; border-radius: 50%; background: var(--primary); color: var(--white); font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .step p { color: var(--gray); font-size: 0.93rem; }
 
     .faq { max-width: 760px; margin: 0 auto; display: grid; gap: 14px; }
     details { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 22px; }
@@ -248,7 +294,9 @@
         <a href="/">Home</a>
         <a href="/extensions">All Extensions</a>
         <a href="#features">Features</a>
-        <a href="#pricing">Pricing &amp; Plans</a>
+        <a href="#security">Security Specs</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#install">Install</a>
         <a href="#faq">FAQ</a>
       </nav>
     </div>
@@ -256,12 +304,15 @@
 
   <div class="hero">
     <div class="wrap">
-      <div class="hero-badge">Chrome Extension · Developer Tool · Manifest V3</div>
+      <div class="hero-icon">
+        <img src="/key-vault/icons/128.png" alt="Key Vault logo" width="48" height="48">
+      </div>
+      <div class="hero-badge">Chrome Extension · Developer Tool · v1.0.0</div>
       <h1>Key Vault — Encrypted API Key &amp; Credential Manager</h1>
       <p class="tagline">Key Vault is a Chrome browser extension that opens in the side panel and lets freelancers and developers keep API keys and credentials in an encrypted vault stored on their own device. Keys are organized into Personal and per-client workspaces.</p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="#pricing">View Plans &amp; Pricing</a>
-        <a class="btn btn-ghost" href="#features">Explore Features</a>
+        <a class="btn btn-ghost" href="#install">How to Install</a>
       </div>
     </div>
   </div>
@@ -269,8 +320,8 @@
   <section id="features">
     <div class="wrap">
       <div class="sec-head">
-        <div class="kicker">Security &amp; Workflow</div>
-        <h2>Designed for Freelancers &amp; Developers</h2>
+        <div class="kicker">Workflow &amp; Organization</div>
+        <h2>Built for Developer Productivity</h2>
         <p>Keep sensitive tokens and client credentials neatly organized, protected, and available right beside your work.</p>
       </div>
 
@@ -290,31 +341,78 @@
         <article class="feature">
           <div class="ficon">🗂️</div>
           <h3>Personal &amp; Client Workspaces</h3>
-          <p>Organize keys into dedicated workspaces. Keep your own personal keys separate from individual client projects, avoiding accidental key leakage or credential mix-ups.</p>
+          <p>Organize keys into dedicated workspaces. Keep your personal keys separate from individual client projects, avoiding accidental key leakage or credential mix-ups.</p>
         </article>
 
         <article class="feature">
-          <div class="ficon">⚡</div>
-          <h3>1-Click Copy &amp; Masking</h3>
-          <p>Keys remain masked by default for shoulder-surfing protection. Quickly reveal or copy keys to the clipboard with one click with automatic clipboard clearing.</p>
+          <div class="ficon">🔢</div>
+          <h3>Quick 4-Digit PIN Unlock</h3>
+          <p>Unlock your vault throughout the day with a fast 4-digit PIN. The PIN is sealed by an internal hardware device key in IndexedDB with brute-force rate limiting.</p>
         </article>
 
         <article class="feature">
-          <div class="ficon">📧</div>
-          <h3>Instant License Key Delivery</h3>
-          <p>Subscribing to Pro delivers your digital activation key directly to your email inbox immediately after checkout. Paste it into the extension to activate your client workspaces in seconds.</p>
+          <div class="ficon">🧹</div>
+          <h3>30s Auto Clipboard Clearing</h3>
+          <p>Once you copy an API key, the extension automatically clears the clipboard after 30 seconds via an offscreen service to prevent clipboard snooping.</p>
         </article>
 
         <article class="feature">
-          <div class="ficon">🛡️</div>
-          <h3>Privacy-First &amp; Zero Tracking</h3>
-          <p>Key Vault does not collect analytics, logs, or telemetry. It does not sell user data. Your credentials belong to you and stay on your hardware.</p>
+          <div class="ficon">🔄</div>
+          <h3>Encrypted Profile Sync</h3>
+          <p>Optionally sync your encrypted vault across your Chrome profile. Only ciphertext is synced; your master password and PIN never leave your machine.</p>
         </article>
+      </div>
+
+      <!-- Keyboard Shortcuts -->
+      <div class="sec-head" style="margin-top: 56px; margin-bottom: 24px;">
+        <div class="kicker">Built-in Speed</div>
+        <h3>Keyboard Shortcuts</h3>
+      </div>
+      <div class="kbd-wrap">
+        <div class="kbd-chip"><kbd>Ctrl / ⌘ + K</kbd> Search keys, clients, notes</div>
+        <div class="kbd-chip"><kbd>Ctrl / ⌘ + N</kbd> Add new key</div>
+        <div class="kbd-chip"><kbd>Ctrl / ⌘ + L</kbd> Lock vault immediately</div>
+        <div class="kbd-chip"><kbd>Esc</kbd> Close sheet</div>
       </div>
     </div>
   </section>
 
-  <section id="pricing" class="sec-alt">
+  <!-- Security Specs -->
+  <section id="security" class="sec-alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Technical Architecture</div>
+        <h2>Zero-Knowledge Security Model</h2>
+        <p>No plaintext ever leaves your computer. Built with modern Web Cryptography standards.</p>
+      </div>
+
+      <div class="specs-grid">
+        <div class="spec-card">
+          <h3>🔐 Encryption &amp; Keys</h3>
+          <ul class="spec-list">
+            <li><span class="key">Vault Cipher</span><span class="val">AES-GCM (256-bit)</span></li>
+            <li><span class="key">Key Derivation</span><span class="val">PBKDF2-SHA256</span></li>
+            <li><span class="key">KDF Iterations</span><span class="val">600,000 rounds</span></li>
+            <li><span class="key">Master Salt</span><span class="val">Cryptographic random</span></li>
+            <li><span class="key">PIN Storage</span><span class="val">IndexedDB device-sealed</span></li>
+          </ul>
+        </div>
+
+        <div class="spec-card">
+          <h3>🛡️ Privacy &amp; Session Defense</h3>
+          <ul class="spec-list">
+            <li><span class="key">Decrypted Key Lifetime</span><span class="val">Session memory only</span></li>
+            <li><span class="key">Auto-Lock Intervals</span><span class="val">1, 5, 15, or 30 min</span></li>
+            <li><span class="key">PIN Brute-Force Gate</span><span class="val">3 tries = 30s timeout</span></li>
+            <li><span class="key">PIN Panic Threshold</span><span class="val">6 tries = PIN wiped</span></li>
+            <li><span class="key">Clipboard Security</span><span class="val">Auto-cleared after 30s</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
     <div class="wrap">
       <div class="sec-head">
         <div class="kicker">Transparent Pricing</div>
@@ -335,7 +433,7 @@
             <li>1-click copy &amp; masking</li>
             <li>Zero analytics, zero tracking</li>
           </ul>
-          <a class="btn btn-ghost" style="color:var(--dark); border-color:var(--border);" href="/extensions">Use Free</a>
+          <a class="btn btn-ghost" style="color:var(--dark); border-color:var(--border);" href="#install">Install Free</a>
         </div>
 
         <!-- Pro Subscription -->
@@ -359,7 +457,48 @@
       <div class="policy-box">
         <h4>📦 Digital Fulfillment &amp; Delivery Policy</h4>
         <p>Key Vault is a digital software product. <strong>After paying, the customer receives a license key by email and pastes it into the extension to activate it. No physical goods or services are involved.</strong></p>
-        <p style="margin-top: 6px; color: var(--gray); font-size: 0.88rem;">Need assistance or customer support? Reach our team anytime at <a href="mailto:genstay.in@gmail.com">genstay.in@gmail.com</a>.</p>
+        <p style="margin-top: 6px; color: var(--gray); font-size: 0.88rem;">Need assistance or license verification? Contact our developer support at <a href="mailto:genstay.in@gmail.com">genstay.in@gmail.com</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Install -->
+  <section id="install" class="sec-alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Setup in 60 Seconds</div>
+        <h2>How to Install Key Vault</h2>
+        <p>Key Vault is built on Manifest V3 and runs on Chrome 120+, Microsoft Edge, or Brave.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div>
+            <h3>Open Extension Settings</h3>
+            <p>Open <code style="background:var(--primary-lighter);padding:2px 6px;border-radius:4px;font-family:var(--mono);">chrome://extensions</code> in your browser and toggle on <strong>Developer mode</strong> in the top right.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div>
+            <h3>Load Unpacked Extension</h3>
+            <p>Click <strong>Load unpacked</strong> and select the Key Vault extension folder.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div>
+            <h3>Open Side Panel</h3>
+            <p>Click the Key Vault icon in your browser toolbar. The secure side panel opens immediately.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div>
+            <h3>Set Password &amp; PIN</h3>
+            <p>Create your master password and 4-digit quick-unlock PIN. Your encrypted vault is ready!</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -384,6 +523,10 @@
         <details>
           <summary>Where are my API keys stored?</summary>
           <p>Keys are encrypted locally and stored on your own device using Chrome's secure storage APIs. No passwords, credentials, or keys are ever transmitted to or stored on Genstay servers.</p>
+        </details>
+        <details>
+          <summary>What happens if I forget my master password?</summary>
+          <p>Because Key Vault is zero-knowledge and has no central server, your keys cannot be recovered without your master password. We recommend generating an encrypted backup from Settings right after adding your keys.</p>
         </details>
         <details>
           <summary>Who develops and publishes Key Vault?</summary>
