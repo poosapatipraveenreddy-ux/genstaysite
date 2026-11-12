@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Key Vault Privacy Policy</title>
+<meta name="description" content="Privacy Policy for Key Vault browser extension. Encrypted vault stored on your own device. No analytics, no ads, no tracking.">
+<link rel="canonical" href="https://www.genstay.in/key-vault/privacy">
+<link rel="icon" type="image/png" href="/key-vault/icons/128.png">
+<style>
+:root { --bg: #f7f8f7; --ink: #18222b; --mute: #5d6b76; --line: #dfe4e2; --acc: #0f766e; color-scheme: light dark; }
+@media (prefers-color-scheme: dark) { :root { --bg: #11161b; --ink: #e6ebee; --mute: #98a5af; --line: #2a333b; --acc: #3cc4b3; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+main { max-width: 700px; margin: 0 auto; padding: 40px 20px 80px; }
+.back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--mute); text-decoration: none; font-size: 14px; font-weight: 500; margin-bottom: 24px; }
+.back-link:hover { color: var(--acc); }
+h1 { font-size: 28px; margin: 0 0 4px; letter-spacing: -0.01em; }
+h2 { font-size: 19px; margin: 34px 0 8px; padding-top: 18px; border-top: 1px solid var(--line); }
+p, li { margin: 8px 0; }
+ul { padding-left: 22px; }
+.meta { color: var(--mute); font-size: 14px; margin: 0 0 24px; }
+.sum { border: 1px solid var(--line); border-left: 4px solid var(--acc); border-radius: 8px; padding: 4px 16px; }
+a { color: var(--acc); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; display: block; overflow-x: auto; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+</style>
+</head>
+<body>
+<main>
+<a class="back-link" href="/key-vault">← Back to Key Vault</a>
+
+<h1>Key Vault Privacy Policy</h1>
+<p class="meta">Last updated: 12 November 2026</p>
+
+<div class="sum">
+<p><strong>In short:</strong> Key Vault stores your keys and client details encrypted on your own device. We do not receive them, cannot read them, and cannot recover them. We run no analytics, show no ads, and sell or share no data.</p>
+</div>
+
+<h2>1. What Key Vault is</h2>
+<p>Key Vault is a browser extension that keeps API keys and client details in an encrypted vault and shows them in the browser side panel. This policy explains what happens to the information you put into it.</p>
+
+<h2>2. Information you put into the vault</h2>
+<p>The vault can contain what you choose to type or paste in:</p>
+<ul>
+<li>Key labels, key values, and descriptions.</li>
+<li>Client names, status, contact person, email address, phone number, website, notes, and any custom fields you add.</li>
+</ul>
+<p>This information is encrypted with AES-GCM before it is stored. The encryption key is protected by your master password (using PBKDF2 key derivation). Your master password and PIN never leave your device, and we do not know them. <strong>Because of this, we cannot read your vault and cannot recover it if you forget your master password.</strong></p>
+
+<h2>3. Where your data is stored</h2>
+<ul>
+<li><strong>On your device:</strong> the encrypted vault and your settings are stored in the extension's local storage. While the vault is unlocked, the unlocked key is held only in temporary session storage and is cleared when the vault locks (when you are idle, when your screen locks, when you click Lock, or when you close the browser).</li>
+<li><strong>Browser profile sync (optional):</strong> if you turn on sync, the <em>encrypted</em> vault is stored through your browser's built-in sync service so it is available on your other devices. That data is handled by your browser provider under its own privacy policy. We have no access to it, and your master password and PIN are never synced.</li>
+<li><strong>Backups:</strong> if you export a backup, the file is encrypted and saved only where you choose.</li>
+</ul>
+
+<h2>4. Clipboard</h2>
+<p>When you click Copy, the extension writes that value to your clipboard and clears the clipboard about 30 seconds later. Copying is always your action, and nothing is read from your clipboard.</p>
+
+<h2>5. What we collect</h2>
+<p>We, the developer, do not collect, receive, store, or have access to the contents of your vault, your master password, or your PIN. The extension contains no analytics, advertising, or tracking code, and it does not load code from remote servers.</p>
+
+<h2>6. Paid plan (when available)</h2>
+<p>A paid plan that unlocks additional client workspaces may be offered. If you subscribe:</p>
+<ul>
+<li>Checkout and payment are handled by <strong>Dodo Payments</strong>, our reseller and Merchant of Record. Dodo Payments collects your payment details and email under its own <a href="https://dodopayments.com/privacy-policy" rel="noopener">privacy policy</a>. We do not see your card details.</li>
+<li>When you activate a license key in the extension, the extension sends the license key and a generic device name to Dodo Payments to confirm the subscription is active. No vault contents are sent.</li>
+</ul>
+
+<h2>7. Sharing and selling</h2>
+<p>We do not sell your data, share it with third parties for advertising, or use it for any purpose unrelated to the extension's single purpose of storing and organizing your keys. We do not use data to determine creditworthiness or for lending.</p>
+
+<h2>8. Your choices and deleting your data</h2>
+<ul>
+<li>Use <strong>Settings &gt; Erase vault</strong> to delete all vault data from this device, and from browser sync if sync was on.</li>
+<li>Uninstalling the extension removes its local data from your device.</li>
+<li>You can turn sync off at any time in Settings.</li>
+</ul>
+
+<h2>9. Children</h2>
+<p>Key Vault is a professional tool and is not directed at children under 13. We do not knowingly collect information from children.</p>
+
+<h2>10. Changes to this policy</h2>
+<p>If this policy changes, the updated version will be posted here with a new date. Material changes will also be noted in the extension's store listing.</p>
+
+<h2>11. Contact</h2>
+<p>Questions about this policy: <a href="mailto:genstay.in@gmail.com">genstay.in@gmail.com</a></p>
+</main>
+</body>
+</html>
