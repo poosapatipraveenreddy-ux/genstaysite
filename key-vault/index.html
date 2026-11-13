@@ -1,588 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Key Vault: encrypted API key vault with a workspace for every client</title>
+<meta name="description" content="Key Vault is a downloadable browser extension that keeps API keys and client details in an encrypted vault on your device, right in the side panel.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Praveen Reddy (Genstay)">
+<meta name="creator" content="Praveen Reddy">
 
-  <title>Key Vault — Encrypted API Key &amp; Credential Manager Chrome Extension | Genstay</title>
-  <meta name="description" content="Key Vault is a Chrome browser extension that opens in the side panel and lets freelancers and developers keep API keys and credentials in an encrypted vault stored on their own device. Free for personal use, monthly or yearly subscriptions for unlimited client workspaces.">
-  <meta name="keywords" content="key vault, api key manager, chrome extension, developer extension, side panel extension, credential manager, encrypted vault, personal workspaces, client workspaces, genstay">
-  <meta name="author" content="Praveen Reddy (Genstay)">
-  <meta name="creator" content="Praveen Reddy">
-  <meta name="theme-color" content="#1B4D3E">
+<link rel="canonical" href="https://www.genstay.in/key-vault">
+<link rel="alternate" hreflang="en-IN" href="https://www.genstay.in/key-vault">
+<link rel="alternate" hreflang="x-default" href="https://www.genstay.in/key-vault">
 
-  <link rel="canonical" href="https://www.genstay.in/key-vault">
-  <link rel="alternate" hreflang="en-IN" href="https://www.genstay.in/key-vault">
-  <link rel="alternate" hreflang="x-default" href="https://www.genstay.in/key-vault">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.genstay.in/key-vault">
+<meta property="og:title" content="Key Vault: encrypted API key vault with a workspace for every client">
+<meta property="og:description" content="Key Vault is a downloadable browser extension that keeps API keys and client details in an encrypted vault on your device, right in the side panel.">
+<meta property="og:site_name" content="Genstay">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://www.genstay.in/key-vault/icons/128.png">
 
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.genstay.in/key-vault">
-  <meta property="og:title" content="Key Vault — Encrypted API Key &amp; Credential Manager Chrome Extension">
-  <meta property="og:description" content="A Chrome extension that opens in the side panel. Keep API keys and credentials in an encrypted vault on your own device with Personal and per-client workspaces.">
-  <meta property="og:site_name" content="Genstay">
-  <meta property="og:locale" content="en_IN">
-  <meta property="og:image" content="https://www.genstay.in/key-vault/icons/128.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://www.genstay.in/key-vault">
+<meta name="twitter:title" content="Key Vault: encrypted API key vault with a workspace for every client">
+<meta name="twitter:description" content="Key Vault is a downloadable browser extension that keeps API keys and client details in an encrypted vault on your device, right in the side panel.">
+<meta name="twitter:image" content="https://www.genstay.in/key-vault/icons/128.png">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://www.genstay.in/key-vault">
-  <meta name="twitter:title" content="Key Vault — Encrypted API Key &amp; Credential Manager">
-  <meta name="twitter:description" content="A Chrome extension that opens in the side panel. Keep API keys and credentials in an encrypted vault on your own device.">
-  <meta name="twitter:image" content="https://www.genstay.in/key-vault/icons/128.png">
+<link rel="icon" type="image/png" href="/key-vault/icons/128.png">
+<link rel="apple-touch-icon" href="/key-vault/icons/128.png">
 
-  <link rel="icon" type="image/png" href="/key-vault/icons/128.png">
-  <link rel="apple-touch-icon" href="/key-vault/icons/128.png">
-
-  <script type="application/ld+json" id="software-jsonld">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Key Vault",
-    "softwareVersion": "1.0.0",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Google Chrome (Desktop 120+), Microsoft Edge, Brave",
-    "browserRequirements": "Google Chrome 120+ (Manifest V3 Side Panel support)",
-    "description": "Key Vault is a Chrome browser extension that opens in the side panel and lets freelancers and developers keep API keys and credentials in an encrypted vault stored on their own device. Keys are organized into Personal and per-client workspaces. The extension is free for personal use, and a monthly or yearly subscription unlocks unlimited client workspaces. After paying, the customer receives a license key by email and pastes it into the extension to activate it. No physical goods or services are involved.",
-    "url": "https://www.genstay.in/key-vault",
-    "image": "https://www.genstay.in/key-vault/icons/128.png",
-    "featureList": [
-      "Local device AES-GCM encrypted vault",
-      "Master password wrapped with PBKDF2-SHA256 (600k iterations)",
-      "4-digit PIN quick unlock sealed with IndexedDB device key",
-      "Opens directly in Chrome side panel",
-      "Personal & per-client workspaces",
-      "30-second automatic clipboard clearing",
-      "Auto-lock on idle and browser close",
-      "Optional Chrome profile encrypted sync"
-    ],
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Personal Plan",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock",
-        "description": "Free for personal use with personal workspace credentials."
-      },
-      {
-        "@type": "Offer",
-        "name": "Pro Client Workspaces (Subscription)",
-        "availability": "https://schema.org/InStock",
-        "description": "Monthly or yearly subscription unlocking unlimited client workspaces with instant license key delivery."
-      }
-    ],
-    "author": {
+<script type="application/ld+json" id="software-jsonld">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Key Vault",
+  "softwareVersion": "1.0.0",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Microsoft Edge, Google Chrome 120+, Brave",
+  "browserRequirements": "Chromium-based browser with Side Panel support",
+  "description": "Key Vault is a downloadable browser extension that keeps API keys and client details in an encrypted vault on your device, right in the side panel.",
+  "url": "https://www.genstay.in/key-vault",
+  "image": "https://www.genstay.in/key-vault/icons/128.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free Plan",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "description": "Free personal encrypted vault with one client workspace."
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro Subscription",
+      "price": "3.00",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/PreOrder",
+      "description": "Unlimited client workspaces, license key for up to 3 devices, automated billing by Dodo Payments."
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Praveen Reddy"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Genstay",
+    "url": "https://www.genstay.in/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.genstay.in/genstay-logo.jpg"
+    },
+    "founder": {
       "@type": "Person",
       "name": "Praveen Reddy"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Genstay",
-      "url": "https://www.genstay.in/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.genstay.in/genstay-logo.jpg"
-      },
-      "founder": {
-        "@type": "Person",
-        "name": "Praveen Reddy"
-      }
     }
   }
-  </script>
+}
+</script>
 
-  <script type="application/ld+json" id="faq-jsonld">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is Key Vault?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Key Vault is a Chrome browser extension that opens in the side panel and lets freelancers and developers keep API keys and credentials in an encrypted vault stored on their own device. Keys are organized into Personal and per-client workspaces."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is Key Vault priced?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The extension is free for personal use. A monthly or yearly subscription unlocks unlimited client workspaces for freelancers and developers handling multiple client accounts."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I receive my license after subscribing?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "After paying, the customer receives a license key by email and pastes it into the extension to activate it immediately. No physical goods or services are involved."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What security algorithms protect my keys?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Keys are encrypted using standard AES-GCM. The vault key is protected by your master password via PBKDF2-SHA256 with 600,000 iterations. Quick unlock uses a 4-digit PIN sealed by an internal device key in IndexedDB. Decrypted keys live in temporary session memory only and are never stored in plaintext."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are my API keys sent to any cloud server?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Your keys and credentials stay in an encrypted vault stored strictly on your own device. Nothing is uploaded to cloud servers or third parties. If you enable Chrome sync, only the encrypted ciphertext is synced across your own Chrome profile."
-        }
-      }
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json" id="breadcrumb-jsonld">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.genstay.in/" },
-      { "@type": "ListItem", "position": 2, "name": "Extensions", "item": "https://www.genstay.in/extensions" },
-      { "@type": "ListItem", "position": 3, "name": "Key Vault", "item": "https://www.genstay.in/key-vault" }
-    ]
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --primary: #1B4D3E;
-      --primary-light: #2D7A5F;
-      --primary-lighter: #E8F5EE;
-      --accent: #D4A843;
-      --accent-light: #F5E6B8;
-      --dark: #0C1B16;
-      --gray: #5A6B63;
-      --gray-light: #8A9B92;
-      --light: #F7FAF8;
-      --white: #FFFFFF;
-      --border: #D8E4DD;
-      --radius: 14px;
-      --shadow: 0 4px 24px rgba(12, 27, 22, 0.08);
-      --mono: 'JetBrains Mono', monospace;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    img { max-width: 100%; display: block; }
-    a { color: var(--primary-light); }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
-    .topbar { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 1.15rem; color: var(--dark); }
-    .brand img { width: 34px; height: 34px; border-radius: 8px; }
-    .brand span em { font-style: normal; color: var(--primary-light); }
-    .topbar nav a { text-decoration: none; color: var(--gray); font-weight: 500; font-size: 0.92rem; margin-left: 20px; transition: color 0.15s ease; }
-    .topbar nav a:hover { color: var(--primary); }
-
-    .hero { background: linear-gradient(160deg, #0C1B16 0%, #1B4D3E 60%, #2D7A5F 100%); color: var(--white); padding: 76px 0 64px; text-align: center; }
-    .hero-icon { width: 72px; height: 72px; margin: 0 auto 20px; background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.25); border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
-    .hero-icon img { width: 48px; height: 48px; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); border-radius: 999px; padding: 6px 16px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 18px; }
-    .hero h1 { font-size: clamp(2rem, 4.5vw, 3.1rem); font-weight: 800; line-height: 1.15; margin-bottom: 18px; max-width: 820px; margin-left: auto; margin-right: auto; }
-    .hero .tagline { font-size: clamp(1.05rem, 2vw, 1.25rem); color: rgba(255,255,255,0.88); max-width: 760px; margin: 0 auto 32px; line-height: 1.65; }
-    .hero-cta { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-bottom: 12px; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: 10px; font-weight: 700; font-size: 0.98rem; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease; cursor: pointer; }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--accent); color: var(--dark); box-shadow: 0 6px 20px rgba(212,168,67,0.35); }
-    .btn-ghost { background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.3); }
-
-    section { padding: 72px 0; }
-    .sec-alt { background: var(--white); }
-    .sec-head { text-align: center; max-width: 680px; margin: 0 auto 48px; }
-    .sec-head .kicker { color: var(--primary-light); font-weight: 700; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
-    .sec-head h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; color: var(--dark); line-height: 1.2; margin-bottom: 12px; }
-    .sec-head p { color: var(--gray); font-size: 1.02rem; }
-
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 24px; }
-    .feature { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow); }
-    .sec-alt .feature { background: var(--light); box-shadow: none; }
-    .feature .ficon { width: 50px; height: 50px; border-radius: 12px; background: var(--primary-lighter); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 18px; }
-    .feature h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; color: var(--dark); }
-    .feature p { color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
-
-    /* Security Specs Table */
-    .specs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 24px; }
-    .spec-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
-    .spec-card h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
-    .spec-list { list-style: none; }
-    .spec-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
-    .spec-list li:last-child { border-bottom: none; }
-    .spec-list span.key { color: var(--gray); font-weight: 500; }
-    .spec-list span.val { color: var(--dark); font-weight: 600; font-family: var(--mono); font-size: 0.88rem; text-align: right; }
-
-    /* Keyboard Shortcuts */
-    .kbd-wrap { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 32px; }
-    .kbd-chip { display: flex; align-items: center; gap: 10px; background: var(--white); border: 1px solid var(--border); padding: 10px 18px; border-radius: 10px; font-size: 0.9rem; font-weight: 500; }
-    kbd { background: var(--primary-lighter); border: 1px solid var(--border); border-radius: 6px; padding: 3px 8px; font-family: var(--mono); font-size: 0.82rem; font-weight: 700; color: var(--primary); }
-
-    /* Pricing Cards */
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 24px; max-width: 820px; margin: 0 auto; }
-    .price-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 30px; box-shadow: var(--shadow); position: relative; display: flex; flex-direction: column; }
-    .price-card.featured { border: 2px solid var(--primary-light); }
-    .badge-pop { position: absolute; top: -12px; right: 24px; background: var(--primary-light); color: var(--white); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; padding: 4px 12px; border-radius: 999px; letter-spacing: 0.05em; }
-    .price-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 8px; color: var(--dark); }
-    .price-card .cost { font-size: 2.2rem; font-weight: 900; color: var(--dark); margin: 14px 0; }
-    .price-card .cost span { font-size: 0.95rem; font-weight: 500; color: var(--gray); }
-    .price-card p.desc { color: var(--gray); font-size: 0.93rem; margin-bottom: 22px; }
-    .price-card ul { list-style: none; margin-bottom: 30px; flex-grow: 1; }
-    .price-card li { position: relative; padding-left: 26px; margin-bottom: 10px; color: var(--gray); font-size: 0.93rem; }
-    .price-card li::before { content: "✓"; position: absolute; left: 0; color: var(--primary-light); font-weight: 800; }
-
-    /* Policy & Delivery box */
-    .policy-box { background: var(--primary-lighter); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; max-width: 820px; margin: 40px auto 0; }
-    .policy-box h4 { font-size: 1.1rem; color: var(--primary); margin-bottom: 10px; font-weight: 700; }
-    .policy-box p { font-size: 0.93rem; color: var(--dark); line-height: 1.65; margin-bottom: 8px; }
-
-    /* Steps */
-    .steps { counter-reset: step; max-width: 720px; margin: 0 auto; display: grid; gap: 18px; }
-    .step { display: flex; gap: 18px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; }
-    .sec-alt .step { background: var(--light); }
-    .step::before { counter-increment: step; content: counter(step); flex: 0 0 40px; height: 40px; border-radius: 50%; background: var(--primary); color: var(--white); font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-    .step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
-    .step p { color: var(--gray); font-size: 0.93rem; }
-
-    .faq { max-width: 760px; margin: 0 auto; display: grid; gap: 14px; }
-    details { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 0 22px; }
-    .sec-alt details { background: var(--light); }
-    details summary { cursor: pointer; font-weight: 700; padding: 18px 0; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 14px; font-size: 1rem; }
-    details summary::-webkit-details-marker { display: none; }
-    details summary::after { content: "+"; font-size: 1.3rem; color: var(--primary-light); font-weight: 600; flex-shrink: 0; }
-    details[open] summary::after { content: "–"; }
-    details p { padding-bottom: 18px; color: var(--gray); font-size: 0.95rem; }
-
-    footer { background: var(--dark); color: rgba(255,255,255,0.75); padding: 44px 0 28px; }
-    .foot-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 28px; margin-bottom: 28px; }
-    .foot-brand { max-width: 380px; }
-    .foot-brand .brand { color: var(--white); margin-bottom: 12px; }
-    .foot-brand p { font-size: 0.9rem; }
-    .foot-links { display: flex; gap: 44px; flex-wrap: wrap; }
-    .foot-col h4 { color: var(--white); font-size: 0.92rem; margin-bottom: 12px; }
-    .foot-col a { display: block; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; margin-bottom: 8px; }
-    .foot-col a:hover { color: var(--white); }
-    .foot-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; font-size: 0.82rem; text-align: center; color: rgba(255,255,255,0.5); }
-
-    @media (max-width: 640px) {
-      section { padding: 52px 0; }
-      .hero { padding: 52px 0; }
-      .topbar nav { display: none; }
-    }
-  </style>
+<style>
+:root { --bg:#f6f8f7; --card:#ffffff; --ink:#142027; --mute:#52646c; --line:#dce3e1; --acc:#0f766e; --acc-ink:#ffffff; --soft:#e2f2ef; color-scheme: light dark; }
+@media (prefers-color-scheme: dark) { :root { --bg:#10151a; --card:#182027; --ink:#e7edf0; --mute:#9aa8b1; --line:#2a343c; --acc:#3cc4b3; --acc-ink:#06201d; --soft:#16322f; } }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+a { color:var(--acc); }
+.wrap { max-width:980px; margin:0 auto; padding:0 22px; }
+nav { display:flex; align-items:center; justify-content:space-between; padding:20px 0; }
+.brand { display:flex; align-items:center; gap:10px; font-weight:650; font-size:18px; color:var(--ink); text-decoration:none; }
+.brand svg { width:34px; height:34px; }
+nav a.link { color:var(--mute); text-decoration:none; margin-left:20px; font-size:15px; }
+nav a.link:hover { color:var(--acc); }
+.hero { padding:56px 0 40px; max-width:700px; }
+h1 { font-size:clamp(34px,6vw,54px); line-height:1.08; letter-spacing:-0.02em; margin:0 0 18px; }
+.lead { font-size:20px; color:var(--mute); margin:0 0 28px; }
+.btn { display:inline-block; background:var(--acc); color:var(--acc-ink); padding:13px 22px; border-radius:10px; font-weight:600; text-decoration:none; }
+.btn.off { background:var(--card); color:var(--mute); border:1px solid var(--line); }
+.note { color:var(--mute); font-size:14px; margin-top:12px; }
+section { padding:44px 0; border-top:1px solid var(--line); }
+h2 { font-size:28px; letter-spacing:-0.01em; margin:0 0 8px; }
+.sub { color:var(--mute); margin:0 0 26px; max-width:640px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
+.card h3 { margin:0 0 6px; font-size:17px; }
+.card p { margin:0; color:var(--mute); font-size:15px; }
+.steps { counter-reset:s; display:grid; gap:14px; padding:0; list-style:none; }
+.steps li { counter-increment:s; display:flex; gap:14px; align-items:flex-start; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; }
+.steps li::before { content:counter(s); flex:none; width:30px; height:30px; border-radius:50%; background:var(--soft); color:var(--acc); font-weight:650; display:grid; place-items:center; }
+.price { font-size:38px; font-weight:650; letter-spacing:-0.02em; }
+.price small { font-size:16px; color:var(--mute); font-weight:400; }
+.card ul { margin:12px 0 0; padding-left:20px; color:var(--mute); font-size:15px; }
+.tag { display:inline-block; background:var(--soft); color:var(--acc); border-radius:999px; padding:2px 10px; font-size:12.5px; font-weight:600; margin-bottom:10px; }
+footer { padding:34px 0 60px; border-top:1px solid var(--line); color:var(--mute); font-size:14px; }
+footer a { margin-right:18px; }
+</style>
 </head>
 <body>
+<div class="wrap">
+<nav>
+  <a class="brand" href="#top"><svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#0f766e"/><path d="M34 46V38a16 16 0 0 1 32 0v8" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/><rect x="27" y="46" width="46" height="30" rx="5" fill="#fff"/><circle cx="50" cy="60" r="4.5" fill="#0f766e"/></svg>Key Vault</a>
+  <div><a class="link" href="/">Genstay Home</a><a class="link" href="/extensions">All Extensions</a><a class="link" href="#features">Features</a><a class="link" href="#how">How it works</a><a class="link" href="#pricing">Pricing</a></div>
+</nav>
 
-  <header class="topbar">
-    <div class="wrap">
-      <a class="brand" href="/">
-        <img src="/genstay-logo.jpg" alt="Genstay logo" width="34" height="34" loading="lazy">
-        <span>Gen<em>stay</em></span>
-      </a>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/extensions">All Extensions</a>
-        <a href="#features">Features</a>
-        <a href="#security">Security Specs</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#install">Install</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-    </div>
-  </header>
+<header class="hero" id="top">
+  <h1>An encrypted vault for every client's API keys</h1>
+  <p class="lead">Key Vault is a downloadable browser extension for developers and freelancers. It keeps your keys and client details encrypted on your own device and opens in the side panel while you work.</p>
+  <!-- When your store listing is live, replace href="#" with the listing link and remove the "off" class and the note below. -->
+  <a class="btn off" href="#" aria-disabled="true">Add to your browser (coming soon)</a>
+  <p class="note">Submitted to the Microsoft Edge Add-ons store and in review.</p>
+</header>
 
-  <div class="hero">
-    <div class="wrap">
-      <div class="hero-icon">
-        <img src="/key-vault/icons/128.png" alt="Key Vault logo" width="48" height="48">
-      </div>
-      <div class="hero-badge">Chrome Extension · Developer Tool · v1.0.0</div>
-      <h1>Key Vault — Encrypted API Key &amp; Credential Manager</h1>
-      <p class="tagline">Key Vault is a Chrome browser extension that opens in the side panel and lets freelancers and developers keep API keys and credentials in an encrypted vault stored on their own device. Keys are organized into Personal and per-client workspaces.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#pricing">View Plans &amp; Pricing</a>
-        <a class="btn btn-ghost" href="#install">How to Install</a>
-      </div>
-    </div>
+<section id="features">
+  <h2>Everything for managing client credentials</h2>
+  <p class="sub">One place for the keys you use every day, organized the way you actually work.</p>
+  <div class="grid">
+    <div class="card"><h3>Encrypted on your device</h3><p>Your vault is encrypted with a master password that only you know. The developer cannot read it.</p></div>
+    <div class="card"><h3>Quick PIN unlock</h3><p>Open the vault with a 4-digit PIN. It locks automatically when you are idle or your screen locks.</p></div>
+    <div class="card"><h3>A workspace per client</h3><p>Create each client once, then keep its keys, notes, contact details and custom fields together.</p></div>
+    <div class="card"><h3>Copy safely</h3><p>One-tap copy, with the clipboard cleared automatically after 30 seconds. Keys stay hidden until you reveal them.</p></div>
+    <div class="card"><h3>Side panel</h3><p>Stays open next to your work, so you never click a popup open and shut again.</p></div>
+    <div class="card"><h3>Sync and backups</h3><p>Optionally sync the encrypted vault through your browser profile, and export encrypted backups.</p></div>
   </div>
+</section>
 
-  <section id="features">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="kicker">Workflow &amp; Organization</div>
-        <h2>Built for Developer Productivity</h2>
-        <p>Keep sensitive tokens and client credentials neatly organized, protected, and available right beside your work.</p>
-      </div>
+<section id="how">
+  <h2>How it works</h2>
+  <p class="sub">Getting the paid plan is fully automatic. Nothing is delivered by hand.</p>
+  <ol class="steps">
+    <li><span><strong>Install the extension.</strong> Create your master password and set a PIN.</span></li>
+    <li><span><strong>Upgrade when you need more clients.</strong> Click Subscribe in the extension to open the secure checkout.</span></li>
+    <li><span><strong>Receive your license key by email.</strong> It is generated and sent automatically right after payment.</span></li>
+    <li><span><strong>Paste the key into the extension.</strong> Open Settings, choose Upgrade, paste the key and press Activate. One key works on up to 3 devices.</span></li>
+    <li><span><strong>Cancel any time.</strong> If your subscription ends, the extension returns to the free plan and your saved keys stay readable and exportable.</span></li>
+  </ol>
+</section>
 
-      <div class="features">
-        <article class="feature">
-          <div class="ficon">🔐</div>
-          <h3>Local Device Encrypted Vault</h3>
-          <p>Your API keys, secrets, and auth tokens are encrypted using standard cryptography and stored strictly on your own device. No external servers or third-party cloud databases ever hold your keys.</p>
-        </article>
+<section id="pricing">
+  <h2>Pricing</h2>
+  <p class="sub">Start free. Upgrade only if you manage many clients.</p>
+  <div class="grid">
+    <div class="card"><span class="tag">Free</span><div class="price">$0</div>
+      <ul><li>Encrypted personal vault</li><li>PIN unlock and auto-lock</li><li>One client workspace</li><li>Sync and encrypted backups</li></ul></div>
+    <div class="card"><span class="tag">Pro, coming soon</span><div class="price">$3 <small>USD per month</small></div>
+      <ul><li>Everything in Free</li><li>Unlimited client workspaces</li><li>License key for up to 3 devices</li><li>Cancel any time</li></ul>
+      <p class="note">Local currency and taxes are shown at checkout. Payments are handled by Dodo Payments, our reseller and Merchant of Record. We never see your card details.</p></div>
+  </div>
+</section>
 
-        <article class="feature">
-          <div class="ficon">📑</div>
-          <h3>Chrome Side Panel Access</h3>
-          <p>Opens seamlessly in Google Chrome’s native side panel. Retrieve, copy, and manage credentials alongside your development dashboard, code editor, or API client without tab switching.</p>
-        </article>
+<section id="security">
+  <h2>Privacy and security</h2>
+  <p class="sub">Your vault is encrypted on your device before it is stored. We have no analytics, ads or tracking. We cannot read your vault and cannot recover a forgotten master password, so keep it safe. See the <a href="/key-vault/privacy">privacy policy</a> for details.</p>
+</section>
 
-        <article class="feature">
-          <div class="ficon">🗂️</div>
-          <h3>Personal &amp; Client Workspaces</h3>
-          <p>Organize keys into dedicated workspaces. Keep your personal keys separate from individual client projects, avoiding accidental key leakage or credential mix-ups.</p>
-        </article>
+<section id="refunds">
+  <h2>Refund policy</h2>
+  <p class="sub">If Key Vault Pro does not work for you, email us within 7 days of your first payment and we will refund it. You can cancel your subscription at any time to stop future charges.</p>
+</section>
 
-        <article class="feature">
-          <div class="ficon">🔢</div>
-          <h3>Quick 4-Digit PIN Unlock</h3>
-          <p>Unlock your vault throughout the day with a fast 4-digit PIN. The PIN is sealed by an internal hardware device key in IndexedDB with brute-force rate limiting.</p>
-        </article>
-
-        <article class="feature">
-          <div class="ficon">🧹</div>
-          <h3>30s Auto Clipboard Clearing</h3>
-          <p>Once you copy an API key, the extension automatically clears the clipboard after 30 seconds via an offscreen service to prevent clipboard snooping.</p>
-        </article>
-
-        <article class="feature">
-          <div class="ficon">🔄</div>
-          <h3>Encrypted Profile Sync</h3>
-          <p>Optionally sync your encrypted vault across your Chrome profile. Only ciphertext is synced; your master password and PIN never leave your machine.</p>
-        </article>
-      </div>
-
-      <!-- Keyboard Shortcuts -->
-      <div class="sec-head" style="margin-top: 56px; margin-bottom: 24px;">
-        <div class="kicker">Built-in Speed</div>
-        <h3>Keyboard Shortcuts</h3>
-      </div>
-      <div class="kbd-wrap">
-        <div class="kbd-chip"><kbd>Ctrl / ⌘ + K</kbd> Search keys, clients, notes</div>
-        <div class="kbd-chip"><kbd>Ctrl / ⌘ + N</kbd> Add new key</div>
-        <div class="kbd-chip"><kbd>Ctrl / ⌘ + L</kbd> Lock vault immediately</div>
-        <div class="kbd-chip"><kbd>Esc</kbd> Close sheet</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Security Specs -->
-  <section id="security" class="sec-alt">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="kicker">Technical Architecture</div>
-        <h2>Zero-Knowledge Security Model</h2>
-        <p>No plaintext ever leaves your computer. Built with modern Web Cryptography standards.</p>
-      </div>
-
-      <div class="specs-grid">
-        <div class="spec-card">
-          <h3>🔐 Encryption &amp; Keys</h3>
-          <ul class="spec-list">
-            <li><span class="key">Vault Cipher</span><span class="val">AES-GCM (256-bit)</span></li>
-            <li><span class="key">Key Derivation</span><span class="val">PBKDF2-SHA256</span></li>
-            <li><span class="key">KDF Iterations</span><span class="val">600,000 rounds</span></li>
-            <li><span class="key">Master Salt</span><span class="val">Cryptographic random</span></li>
-            <li><span class="key">PIN Storage</span><span class="val">IndexedDB device-sealed</span></li>
-          </ul>
-        </div>
-
-        <div class="spec-card">
-          <h3>🛡️ Privacy &amp; Session Defense</h3>
-          <ul class="spec-list">
-            <li><span class="key">Decrypted Key Lifetime</span><span class="val">Session memory only</span></li>
-            <li><span class="key">Auto-Lock Intervals</span><span class="val">1, 5, 15, or 30 min</span></li>
-            <li><span class="key">PIN Brute-Force Gate</span><span class="val">3 tries = 30s timeout</span></li>
-            <li><span class="key">PIN Panic Threshold</span><span class="val">6 tries = PIN wiped</span></li>
-            <li><span class="key">Clipboard Security</span><span class="val">Auto-cleared after 30s</span></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="kicker">Transparent Pricing</div>
-        <h2>Simple Plans for Developers</h2>
-        <p>The extension is free for personal use, and a monthly or yearly subscription unlocks unlimited client workspaces.</p>
-      </div>
-
-      <div class="pricing-grid">
-        <!-- Personal Tier -->
-        <div class="price-card">
-          <h3>Personal</h3>
-          <p class="desc">For individual developers storing their personal keys and tokens.</p>
-          <div class="cost">$0 <span>/ forever</span></div>
-          <ul>
-            <li>Full encrypted vault on your device</li>
-            <li>Chrome side panel integration</li>
-            <li>Personal workspace</li>
-            <li>1-click copy &amp; masking</li>
-            <li>Zero analytics, zero tracking</li>
-          </ul>
-          <a class="btn btn-ghost" style="color:var(--dark); border-color:var(--border);" href="#install">Install Free</a>
-        </div>
-
-        <!-- Pro Subscription -->
-        <div class="price-card featured">
-          <div class="badge-pop">Recommended</div>
-          <h3>Pro Workspaces</h3>
-          <p class="desc">For freelancers and agencies handling multiple client accounts.</p>
-          <div class="cost">Monthly / Yearly <span>subscription</span></div>
-          <ul>
-            <li>Everything in Personal</li>
-            <li><strong>Unlimited per-client workspaces</strong></li>
-            <li>Client-specific credential tags</li>
-            <li>Instant license delivery by email</li>
-            <li>Priority developer email support</li>
-          </ul>
-          <a class="btn btn-primary" href="mailto:genstay.in@gmail.com?subject=Key%20Vault%20Pro%20Subscription">Get License Key</a>
-        </div>
-      </div>
-
-      <!-- Merchant & Delivery Policy Fulfillment Notice -->
-      <div class="policy-box">
-        <h4>📦 Digital Fulfillment &amp; Delivery Policy</h4>
-        <p>Key Vault is a digital software product. <strong>After paying, the customer receives a license key by email and pastes it into the extension to activate it. No physical goods or services are involved.</strong></p>
-        <p style="margin-top: 6px; color: var(--gray); font-size: 0.88rem;">Need assistance or license verification? Contact our developer support at <a href="mailto:genstay.in@gmail.com">genstay.in@gmail.com</a>. Read the complete <a href="/key-vault/privacy" style="color:var(--primary);font-weight:600;">Key Vault Privacy Policy →</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- How to Install -->
-  <section id="install" class="sec-alt">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="kicker">Setup in 60 Seconds</div>
-        <h2>How to Install Key Vault</h2>
-        <p>Key Vault is built on Manifest V3 and runs on Chrome 120+, Microsoft Edge, or Brave.</p>
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <div>
-            <h3>Open Extension Settings</h3>
-            <p>Open <code style="background:var(--primary-lighter);padding:2px 6px;border-radius:4px;font-family:var(--mono);">chrome://extensions</code> in your browser and toggle on <strong>Developer mode</strong> in the top right.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div>
-            <h3>Load Unpacked Extension</h3>
-            <p>Click <strong>Load unpacked</strong> and select the Key Vault extension folder.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div>
-            <h3>Open Side Panel</h3>
-            <p>Click the Key Vault icon in your browser toolbar. The secure side panel opens immediately.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div>
-            <h3>Set Password &amp; PIN</h3>
-            <p>Create your master password and 4-digit quick-unlock PIN. Your encrypted vault is ready!</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="kicker">FAQ</div>
-        <h2>Frequently Asked Questions</h2>
-        <p>Everything you need to know about Key Vault and digital licensing.</p>
-      </div>
-
-      <div class="faq">
-        <details>
-          <summary>What is Key Vault?</summary>
-          <p>Key Vault is a Chrome browser extension that opens in the side panel and lets freelancers and developers keep API keys and credentials in an encrypted vault stored on their own device. Keys are organized into Personal and per-client workspaces.</p>
-        </details>
-        <details>
-          <summary>How does the subscription and activation work?</summary>
-          <p>The extension is free for personal use, and a monthly or yearly subscription unlocks unlimited client workspaces. After paying, the customer receives a license key by email and pastes it into the extension to activate it. No physical goods or services are involved.</p>
-        </details>
-        <details>
-          <summary>Where are my API keys stored?</summary>
-          <p>Keys are encrypted locally and stored on your own device using Chrome's secure storage APIs. No passwords, credentials, or keys are ever transmitted to or stored on Genstay servers.</p>
-        </details>
-        <details>
-          <summary>What happens if I forget my master password?</summary>
-          <p>Because Key Vault is zero-knowledge and has no central server, your keys cannot be recovered without your master password. We recommend generating an encrypted backup from Settings right after adding your keys.</p>
-        </details>
-        <details>
-          <summary>Who develops and publishes Key Vault?</summary>
-          <p>Key Vault is developed and published by Genstay, founded by Praveen Reddy. Support inquiries can be directed to genstay.in@gmail.com.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap">
-      <div class="foot-grid">
-        <div class="foot-brand">
-          <a class="brand" href="/">
-            <img src="/genstay-logo.jpg" alt="Genstay logo" width="34" height="34" loading="lazy">
-            <span>Gen<em>stay</em></span>
-          </a>
-          <p>Verified deals. Safe investments. Your trusted partner for buying, renting, and selling businesses in Hyderabad and beyond — plus developer tools and browser extensions.</p>
-          <div class="foot-meta" style="margin-top: 14px; font-size: 0.88rem; color: rgba(255,255,255,0.85); line-height: 1.6;">
-            <div><strong>Product:</strong> Extensions (Key Vault)</div>
-            <div><strong>Founder:</strong> Praveen Reddy</div>
-          </div>
-        </div>
-        <div class="foot-links">
-          <div class="foot-col">
-            <h4>Genstay</h4>
-            <a href="/">Home</a>
-            <a href="/#services">Services</a>
-            <a href="/#pricing">Pricing</a>
-            <a href="/#contact">Contact</a>
-          </div>
-          <div class="foot-col">
-            <h4>Products</h4>
-            <a href="/key-vault">Key Vault — API Key Manager</a>
-            <a href="/extensions">Personal Browser OS</a>
-            <a href="/clock">BareTime — Custom Clock</a>
-            <a href="/threads-card">Threads Views Card Studio</a>
-            <a href="/first100">First 100 Club — 100 Ideas PDF</a>
-          </div>
-          <div class="foot-col">
-            <h4>Legal</h4>
-            <a href="/key-vault/privacy">Key Vault Privacy Policy</a>
-            <a href="/extensions/privacy">Personal Browser OS Privacy</a>
-          </div>
-        </div>
-      </div>
-      <div class="foot-bottom">
-        <div style="margin-bottom: 6px; color: rgba(255,255,255,0.75);">
-          Product: Extensions (Key Vault) &nbsp;|&nbsp; Founder: Praveen Reddy
-        </div>
-        <div>
-          © 2026 Genstay. All rights reserved. - Verified Deals. Safe Investments. Trusted Partner.
-        </div>
-      </div>
-    </div>
-  </footer>
-
+<footer>
+  <a href="/key-vault/privacy">Privacy policy</a><a href="mailto:genstay.in@gmail.com">Contact: genstay.in@gmail.com</a>
+  <p style="margin-top:10px;">Key Vault is a software product by Genstay · Founder: Praveen Reddy. Checkout and billing by Dodo Payments.</p>
+</footer>
+</div>
 </body>
 </html>
